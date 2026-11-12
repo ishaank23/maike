@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The First Ten Weeks · a carer at home · Maike</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: single column, mobile-first. A photograph opens the page; the first onboarding question sits under it; the funnel runs as full-screen steps.
+   Palette: petal cream, blush and lilac surfaces, deep rose as the one action colour, eucalyptus for trust, plum for the one deep card. */
+:root{
+  --bg:#FDF9F7; --blush:#F9E7EA; --lilac:#F4EEF2; --card:#FFFFFF; --line:#EAD9DE;
+  --ink:#3A3236; --ink-soft:#6B5E66; --muted:#9A8C93;
+  --rose:#C65A7C; --rose-ink:#FFFFFF; --rose-soft:#FBE7EE;
+  --sage:#6E9E8C; --sage-soft:#E8F1ED; --deep:#5B3A4E; --deep-fg:#F8EEF2; --deep-muted:#D3BCC6; --gold:#C9A46B;
+  --display:"Literata",Georgia,"Times New Roman",serif; --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-block:0}
+body.locked{overflow:hidden}
+.page{max-width:560px;margin:0 auto}
+section,header,footer{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:36px}
+.blush{background:var(--blush)}.lilac{background:var(--lilac)}
+h1,h2,h3,.q{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:0}
+h1{font-size:clamp(38px,10vw,50px)}
+h2{font-size:34px;margin-bottom:12px}
+h3{font-size:23px}
+.q{font-size:34px;line-height:1.12}
+p{margin:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.lede{font-size:17px;color:var(--ink-soft);max-width:36em}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sb{justify-content:space-between}
+header{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
+.brand{font-family:var(--display);font-size:26px;font-weight:600;color:var(--rose)}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.link{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.photo{width:100%;max-width:100%;display:block;border-radius:26px;object-fit:cover}
+.hero-photo{aspect-ratio:4/3.2}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:13px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:999px;padding:14px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;background:var(--rose);color:var(--rose-ink);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:62px;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;font:inherit;text-align:left;cursor:pointer;color:var(--ink)}
+.opt b{display:block;font-size:16px}.opt span{display:block;font-size:13px;color:var(--muted)}
+.opt i{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;margin-left:auto;position:relative}
+.opt[aria-checked="true"]{border-color:var(--rose);background:var(--rose-soft)}
+.opt[aria-checked="true"] i{border-color:var(--rose);background:var(--rose)}
+.opt[aria-checked="true"] i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--card)}
+.opt:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.date{display:none;gap:8px;flex-direction:column}.date.show{display:flex}
+.date label,.lbl{font-size:13px;font-weight:700;color:var(--ink-soft)}
+.in{width:100%;min-height:50px;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;background:var(--card);color:var(--ink)}
+.progress{display:flex;gap:6px}.progress i{width:18px;height:4px;border-radius:2px;background:var(--line)}.progress i.on{background:var(--rose)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 15px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;min-height:44px}
+.chip small{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.chip.on{background:var(--rose-soft);border-color:var(--rose)}
+.chip:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.strip div{background:var(--sage-soft);border-radius:18px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;gap:4px;min-width:0}
+.strip b{font-family:var(--display);font-size:24px;color:var(--sage);font-weight:600;line-height:1}
+.strip span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.card.deep{background:var(--deep);color:var(--deep-fg);border-color:transparent}
+.card.deep .muted{color:var(--deep-muted)}
+.card.soft{background:var(--lilac);border-color:transparent}
+.log{display:flex;flex-direction:column}
+.log>div{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.log>div:last-child{border-bottom:0}
+.log time{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted);padding-top:2px}
+.log b{display:block;font-size:15px}.log span{font-size:14px;color:var(--ink-soft)}
+.steps{display:flex;flex-direction:column;gap:16px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.step em{font-family:var(--display);font-style:normal;font-size:36px;line-height:1;color:var(--rose);font-weight:600}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--rose-soft);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:28px;color:var(--rose);flex:none;object-fit:cover;overflow:hidden}
+img.avatar{display:block}
+.avatar.big{width:96px;height:96px;font-size:40px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;font-weight:600;background:var(--lilac);border-radius:999px;padding:5px 11px;color:var(--ink)}
+.tag.hit{background:var(--rose-soft);border:1px solid var(--rose)}
+.checks{display:grid;gap:6px}
+.chk{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.chk i{width:20px;height:20px;border-radius:50%;background:var(--sage);color:#fff;font-style:normal;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:12.5px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:999px;padding:4px 10px}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.price strong{font-family:var(--display);font-size:44px;font-weight:600}
+.price small{font-size:14px;color:var(--deep-muted);text-align:right}
+.incl{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.incl div{display:flex;gap:10px}.incl div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:.62em}
+.addon{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px}
+.addon span{color:var(--muted);white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td:first-child{color:var(--ink-soft);width:34%}
+td.us{color:var(--sage);font-weight:700}
+details{border-top:1px solid var(--line);padding:4px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;padding:14px 0;font-weight:700;font-size:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:26px;color:var(--rose);flex:none;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:14px;color:var(--ink-soft);font-size:15px}
+.quote{font-family:var(--display);font-size:23px;line-height:1.3;font-weight:500;font-style:italic}
+.ledger div{display:grid;grid-template-columns:1fr auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.ledger div:last-child{border-bottom:0}
+.ledger span{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.trad{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.trad .chip{white-space:nowrap;flex:none}
+.tbox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.tbox h3{font-size:26px}
+.tbox .nm{font-family:var(--display);font-style:italic;font-size:18px;color:var(--rose)}
+.tgrid{display:grid;grid-template-columns:1fr;gap:12px}
+.tgrid div{background:var(--lilac);border-radius:16px;padding:12px 14px}
+.tgrid b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+.tgrid p{font-size:14.5px;color:var(--ink-soft)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s;z-index:20}
+.sticky.on{transform:none}
+.sticky .btn{max-width:520px;margin:0 auto;min-height:50px}
+.spacer{height:72px}
+#flow{position:fixed;inset:0;background:var(--bg);z-index:30;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+#flow.open{display:flex}
+.fhead{display:flex;align-items:center;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));max-width:560px;width:100%;margin:0 auto}
+.fhead button{background:none;border:0;font:inherit;font-size:26px;line-height:1;color:var(--ink);cursor:pointer;padding:4px 8px 4px 0}
+.fhead .progress{flex:1}
+.fhead .close{margin-left:auto;font-size:14px;color:var(--muted);padding:6px 0 6px 10px}
+.fbody{flex:1;overflow-y:auto;padding:8px max(20px,env(safe-area-inset-right,0px)) 120px max(20px,env(safe-area-inset-left,0px))}
+.fbody>div{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.ffoot{position:absolute;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line)}
+.ffoot>div{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.sugg{display:flex;flex-direction:column;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.sugg button{text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:13px 14px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.sugg button:last-child{border-bottom:0}
+.sugg button span{color:var(--muted);font-size:13px}
+.sugg button.na span{color:var(--rose)}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;cursor:pointer;font:inherit;text-align:left;width:100%;color:var(--ink)}
+.toggle b{font-size:16px;display:block}.toggle span{font-size:13px;color:var(--muted)}
+.toggle i{width:46px;height:28px;border-radius:14px;background:var(--line);position:relative;flex:none;transition:background .2s}
+.toggle i::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s}
+.toggle[aria-pressed="true"] i{background:var(--sage)}
+.toggle[aria-pressed="true"] i::after{left:21px}
+.ccard{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:12px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);width:100%}
+.ccard.best{border-color:var(--rose)}
+.ccard .nm{font-family:var(--display);font-size:26px;font-weight:600}
+.ccard .meta{font-size:14px;color:var(--ink-soft)}
+.ccard .play{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--sage)}
+.ccard .play i{width:30px;height:30px;border-radius:50%;background:var(--sage-soft);display:inline-flex;align-items:center;justify-content:center;font-style:normal}
+.bestlbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.otp{display:flex;gap:10px}.otp input{flex:1;min-width:0;text-align:center;font-size:24px;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;font-size:15px;padding:8px 0;border-bottom:1px solid var(--line)}
+.total.big{font-size:20px;font-weight:700;border-bottom:0;padding-top:12px}
+.fine{font-size:12.5px;color:var(--muted);line-height:1.45}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+<meta name="description" content="A trained carer who cooks the way your amma did, massages you and the baby the way it’s done at home, and is there every morning. ₹90,000 for ten weeks, Bengaluru.">
+<meta property="og:title" content="The First Ten Weeks · a carer at home · Maike">
+<meta property="og:description" content="A trained carer who cooks the way your amma did, massages you and the baby the way it’s done at home, and is there every morning. ₹90,000 for ten weeks, Bengaluru.">
+<meta property="og:image" content="https://www.maike.space/assets/img/carer-morning.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maike">
+<meta name="theme-color" content="#FDF9F7">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/responsive.css?v=f8de91a2">
+<script src="config.js?v=4e914e7e"></script>
+<script src="assets/js/leads.js?v=7315862d" defer></script>
+</head>
+<body>
+
+<div class="page" id="landing">
+
+<header>
+  <a class="brand" href="./" style="text-decoration:none">maike<small>The forty days, at your home · Bengaluru</small></a>
+  <nav class="nav"><a class="link" href="./">All plans</a><a class="link" href="circle.html">Circle</a><a class="link" href="#faq">Questions</a></nav>
+</header>
+
+<section id="top" style="padding-top:4px">
+  <div class="hero">
+    <div class="hero-copy">
+    <p class="def"><b>the forty days</b> <i>(n.)</i> rest after birth, done the family way</p>
+    <h1>A carer for you and your newborn, at home.</h1>
+    <ul class="hero-checks">
+      <li>Matched on language and tradition</li>
+      <li>Cooks and massages like amma would</li>
+      <li>A replacement by 7 am if she can’t come</li>
+    </ul>
+    <form id="stage" class="stack" style="gap:10px;margin-top:6px" novalidate>
+      <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h3 style="margin-top:4px">Where are you right now?</h3>
+      <div role="radiogroup" aria-label="Your stage" class="stack" style="gap:8px">
+        <button type="button" class="opt" role="radio" aria-checked="false" data-stage="expecting"><div><b>I’m expecting</b><span>Meet your carer before the baby comes</span></div><i></i></button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-stage="here"><div><b>My baby is already here</b><span>Someone can start as early as tomorrow morning</span></div><i></i></button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-stage="planning"><div><b>We’re planning a baby</b><span>Leave a number; we’ll be here when you need us</span></div><i></i></button>
+      </div>
+      <div class="date" id="d-expecting"><label for="due">Due date</label><input class="in" id="due" type="date"></div>
+      <div class="date" id="d-here"><label for="dob">Baby’s date of birth</label><input class="in" id="dob" type="date"></div>
+      <div class="date" id="d-planning"><label for="wa">WhatsApp number</label><input class="in" id="wa" type="tel" placeholder="+91"></div>
+      <button class="btn" type="submit" id="cta">Find a nanny / japa near me</button>
+      <p class="muted" style="text-align:center">Five questions, about 90 seconds. No payment until you’ve chosen her.</p>
+      <p id="done" class="muted" hidden style="text-align:center;color:var(--sage)"></p>
+    </form>
+    </div>
+    <figure class="hero-visual">
+      <img class="photo hero-photo" src="assets/img/carer-morning.jpg" alt="A new mother rests with her newborn while her carer tucks a blanket around them, soft morning light">
+      <div class="hv-card hv-log" aria-hidden="true"><small>Matched for you</small><b>Lakshmi · Tamil, Kannada, pathiyam</b></div>
+      <div class="hv-card hv-note" aria-hidden="true"><small>6:10 am · replacement</small><b>Lakshmi can’t come. Mary arrives at 8.</b></div>
+    </figure>
+  </div>
+
+  <div class="gaps">
+    <p class="gaps-h">How a japa is usually found, and what changes with Maike</p>
+    <ol>
+      <li><span class="was">A number from an agent, forwarded on WhatsApp.</span><span class="now">Police check, two references called, 40 hours of training, three shadowed shifts.</span></li>
+      <li><span class="was">She doesn’t speak your language or know your food.</span><span class="now">Matched on the languages you speak at home and your tradition.</span></li>
+      <li><span class="was">She doesn’t come on day 12, and you start again.</span><span class="now">A replacement confirmed by 7 am.</span></li>
+      <li><span class="was">You meet her for the first time on the morning she starts.</span><span class="now">See her profile, references and a 20-second video intro, and choose her yourself.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">Why we started this</p>
+  <h2>A generation ago, you’d have gone to your maike for the forty days.</h2>
+  <p class="lede">Your mother would have warmed the oil. Someone would have made the rasam, or the panjiri, or the katlu, the way it’s always been made. Today there’s a job you can’t leave, a flat in Koramangala far from her, and a japa from a WhatsApp forward who knows a tradition, just not yours. Maike brings your forty days to your home.</p>
+</section>
+
+<section id="traditions">
+  <p class="eyebrow">Your tradition, kept</p>
+  <h2>Pick the home you grew up in. This is what she’ll do.</h2>
+  <p class="lede" style="margin-bottom:14px">Every carer is trained in the forty days of her own tradition, and matched to yours. The foods, the massage, the bath, the days you’ll mark, done the way it’s done in many homes like yours. You tell her what your family does differently.</p>
+  <figure style="margin:0 0 16px"><img class="photo" src="assets/img/tradition-tray.jpg" alt="A carer sets out a tray of warm sesame oil, gond laddoo, dry-ginger milk, fenugreek and jeera water" style="aspect-ratio:4/3"></figure>
+  <div class="trad" id="tradchips" role="tablist"></div>
+  <div class="tbox" id="tradbox"></div>
+  <p class="muted" style="margin-top:10px">Families differ, and so do doctors. Your carer follows your home, and the nurse checks anything that touches health.</p>
+</section>
+
+<section class="lilac">
+  <p class="eyebrow">What she does, hour by hour</p>
+  <h2>A day with your carer</h2>
+  <figure style="margin:14px 0 16px">
+    <img class="photo" src="assets/img/massage.jpg" alt="A carer gives a calm newborn a warm-oil massage across her lap, a tulsi plant in the window behind" style="aspect-ratio:4/3">
+    <figcaption>The baby’s oil massage and bath, on her legs, the way it was done at home. Every step is in the daily log.</figcaption>
+  </figure>
+  <div class="card log">
+    <div><time>7:00</time><div><b>Arrives, takes the baby</b><span>You sleep. First feed logged: 25 min, left side.</span></div></div>
+    <div><time>8:30</time><div><b>Your breakfast, your way</b><span>Idli with ghee and milagu rasam, or methi thepla, or rava ganji, your tradition’s first-weeks food.</span></div></div>
+    <div><time>10:00</time><div><b>Baby’s massage and bath</b><span>Warm oil on her legs, umbilical care checked, nails and folds cleaned.</span></div></div>
+    <div><time>12:00</time><div><b>Your massage and rest</b><span>Warm oil, belly bound, hot water bath; stitches and pain noted for the nurse.</span></div></div>
+    <div><time>15:00</time><div><b>Log: sleep 3 h 20 m</b><span>Longest stretch this week. Mood check: 4 of 5.</span></div></div>
+    <div><time>19:30</time><div><b>Hands over, log complete</b><span>Nurse Kavitha reads it tonight. Summary to both parents on Monday.</span></div></div>
+  </div>
+  <p class="muted" style="margin-top:12px">What she does: newborn care, your recovery, feeding support, your meals, the log. What she doesn’t: household chores, cooking for the rest of the family, anything medical.</p>
+</section>
+
+<section>
+  <p class="eyebrow">How it works</p>
+  <h2>Three steps, and we stay</h2>
+  <div class="steps" style="margin-top:14px">
+    <div class="step"><em>1</em><div><h3>Tell us about your home</h3><p class="muted">Where you live, the languages she should speak, the tradition you grew up in, who’s at home, when she should start.</p></div></div>
+    <div class="step"><em>2</em><div><h3>Meet her before the baby comes</h3><p class="muted">Two or three carers chosen for you. See every check we ran. Hear her introduce herself. Pick one, or ask for a video call.</p></div></div>
+    <div class="step"><em>3</em><div><h3>We stay with you</h3><p class="muted">If she can’t come, someone else is confirmed by 7 am. A nurse reads the daily log and answers you within 15 minutes. At week nine we ask whether she stays on as nanny.</p></div></div>
+  </div>
+  <button class="btn" data-open-flow style="margin-top:22px">Find a nanny / japa near me</button>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">Who your carer is</p>
+  <h2>A person you choose, not a profile code</h2>
+  <p class="lede" style="margin-bottom:16px">Her name, her languages, the tradition she’s trained in, who she’s cared for, and every check we ran. You choose. Nobody is assigned to you.</p>
+  <div class="card">
+    <div class="row"><img class="avatar" src="assets/img/carer-lakshmi.jpg" alt=""><div><h3>Lakshmi R.</h3><p class="muted">9 years postpartum care · 27 families · 4.9</p></div></div>
+    <div class="tags"><span class="tag">தமிழ் Tamil</span><span class="tag">ಕನ್ನಡ Kannada</span><span class="tag">Tamil pathiyam</span><span class="tag">Day or live-in</span></div>
+    <div class="checks">
+      <div class="chk"><i>✓</i>Police verification and Aadhaar</div>
+      <div class="chk"><i>✓</i>Two prior-family references, called by us</div>
+      <div class="chk"><i>✓</i>40-hour postpartum protocol, certified</div>
+      <div class="chk"><i>✓</i>Three shadowed shifts before her first family</div>
+      <div class="chk"><i>✓</i>Re-referenced after every family</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">One package, paid once</p>
+  <h2>The First Ten Weeks</h2>
+  <div class="card deep" style="margin-top:12px">
+    <div class="price"><strong>₹90,000</strong><small>10 weeks · about ₹9,000 a week<br>or ₹15,000 × 6 months</small></div>
+    <div class="incl">
+      <div>One vetted, trained carer matched on your languages and your tradition, 12 hours a day</div>
+      <div>Your tradition’s foods, massage and bath, done at home</div>
+      <div>Replacement by 7 am if she can’t come</div>
+      <div>Daily log kept by her; weekly nurse summary to both parents</div>
+      <div>Nurse-answered care line, day and night</div>
+      <div>Meet her before you pay; full refund if she hasn’t started</div>
+    </div>
+    <p class="muted">The price covers her training, a replacement pool in your area, and the nurse who reads her log.</p>
+  </div>
+  <div class="card" style="margin-top:12px;gap:0">
+    <p class="eyebrow" style="margin-bottom:6px">Add if you want</p>
+    <div class="addon" style="border-top:0"><div>Live-in, 24 hours</div><span>+ ₹30,000</span></div>
+    <div class="addon"><div>Lactation consultant home visit</div><span>₹2,000</span></div>
+    <div class="addon"><div>Postpartum massage course, 10 sessions</div><span>₹6,000</span></div>
+    <div class="addon"><div>Your tradition’s first-weeks foods, made and delivered</div><span>₹4,500 a week</span></div>
+    <div class="addon"><div>Hold your carer for 48 hours while you decide</div><span>₹5,000, adjusted</span></div>
+  </div>
+</section>
+
+<section class="blush" style="padding-top:0">
+  <div class="card" style="gap:8px">
+    <p class="eyebrow" style="margin-bottom:2px">After the carer leaves</p>
+    <h3>Maike Circle: your doctors and nurse on your phone, all year</h3>
+    <p class="muted">A paediatrician, a gynaecologist, your nurse and specialists, the same team for the first year. ₹1,999 a month; the first month is free for First Ten Weeks families.</p>
+    <a class="btn ghost" href="circle.html" style="margin-top:6px">See Maike Circle</a>
+  </div>
+</section>
+
+<section class="lilac">
+  <p class="eyebrow">The honest comparison</p>
+  <h2>Maike, or finding a japa yourself</h2>
+  <div style="overflow-x:auto;margin-top:12px">
+  <table>
+    <tr><th></th><th>Japa via agency or a forward</th><th>Maike</th></tr>
+    <tr><td>Cost, 10 weeks</td><td>₹45,000–70,000, plus a month’s salary to the agency</td><td class="us">₹90,000, all in</td></tr>
+    <tr><td>Your tradition</td><td>Whatever she knows</td><td class="us">Trained in yours; matched to you</td></tr>
+    <tr><td>Vetting</td><td>None, or a photocopy</td><td class="us">Police check, references we call, 40-hr training</td></tr>
+    <tr><td>Doesn’t turn up</td><td>You start over</td><td class="us">Someone else by 7 am</td></tr>
+    <tr><td>3 a.m. question</td><td>Google</td><td class="us">A nurse, within 15 minutes</td></tr>
+    <tr><td>Who knows how you’re doing</td><td>Nobody</td><td class="us">Daily log, weekly summary to both of you</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Built for both of you</p>
+  <h2>Your partner is on the same thread</h2>
+  <figure style="margin:14px 0 14px"><img class="photo" src="assets/img/father-night.jpg" alt="A father holds his newborn on the edge of the bed at night, reading the nurse’s message, his wife asleep behind him" style="aspect-ratio:4/3"></figure>
+  <p class="lede">The log, the weekly summary and the replacement notice go to both parents. The nurse’s suggestions for the father are written to him. Fathers co-decide in 92% of Indian homes; this is the first service that assumes it.</p>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">Why ten weeks, not forty days</p>
+  <h2>The forty days end. The hard part doesn’t.</h2>
+  <p class="lede">The traditions stop at six weeks, Kerala’s at ninety days. Paternity leave stops at two. The six-week check, the first vaccinations and the first growth worries all land in weeks six to ten, the weeks when help has usually left. We stay through them, and at week nine we ask whether she should stay on when you go back to work.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Stories from families</p>
+  <div class="stack stories">
+    <div class="card"><p class="quote">“Lakshmi akka made milagu rasam the way my amma does. I cried the first morning. By week three I was sleeping six hours.”</p><p class="muted">Anusha R., Indiranagar · first baby · 7 weeks postpartum</p></div>
+    <div class="card"><p class="quote">“My mother-in-law is Punjabi, I’m Kannadiga. Rekha made panjiri for her and ragi ganji for me, and nobody fought. That alone was worth it.”</p><p class="muted">Rohit &amp; Priyanka, HSR Layout · second baby</p></div>
+    <div class="card"><p class="quote">“The night she couldn’t come, the replacement message reached me before I’d even noticed. Someone was at the door at 7.”</p><p class="muted">Meera S., Koramangala 5th Block · 4 weeks postpartum</p></div>
+    <p class="muted">Names changed; stories shared with permission.</p>
+  </div>
+</section>
+
+<section id="faq" class="lilac">
+  <p class="eyebrow">Questions</p>
+  <h2>Before you decide</h2>
+  <div style="margin-top:12px">
+    <details><summary>Will she really know my family’s way?</summary><p>She’s trained in the forty days of her own tradition and we match her to yours. Many homes do things slightly differently: a different laddoo, a different day for the first bath. You tell her, she follows your home. Anything that touches health, the nurse checks first.</p></details>
+    <details><summary>What does the carer do, and not do?</summary><p>She cares for the baby and for you: feeding support, bathing and massage, your recovery, your meals, and the daily log. She doesn’t do household chores, cook for the rest of the family, or give medical advice, the nurse and your doctor do that.</p></details>
+    <details><summary>Can I choose her, or is someone assigned?</summary><p>You choose, from two or three carers matched to your languages and tradition. You can ask for a video call or a home visit before deciding.</p></details>
+    <details><summary>Does she stay overnight?</summary><p>The standard package is 12 hours a day. Live-in is an add-on; she gets her own sleeping space and rest hours, which we set with you.</p></details>
+    <details><summary>What if she doesn’t turn up?</summary><p>She tells us by 9 pm, or we find out at 7 am. Either way a trained carer from your area, who speaks your language and has read your log, is confirmed to you by 7 am. Your original carer returns when she is well.</p></details>
+    <details><summary>Is this medical care?</summary><p>No. The carer and the care line give support and reassurance. Fever, bleeding, breathing trouble, feeding refusal or anything that worries the nurse goes straight to your paediatrician or obstetrician, and the nurse calls you rather than replying.</p></details>
+    <details><summary>How early should I book?</summary><p>Third trimester is ideal, so you can meet her first. If the baby is already here, we can usually start the next morning in Koramangala, Indiranagar, HSR, Jayanagar and the MG Road belt.</p></details>
+    <details><summary>What does it cost, and what if I cancel?</summary><p>₹90,000 for ten weeks, paid once, or six monthly payments of ₹15,000. Full refund before she starts. After that, unused weeks are refunded pro rata.</p></details>
+  </div>
+</section>
+
+<section>
+  <h2>You shouldn’t have to do this alone. You don’t.</h2>
+  <p class="lede" style="margin:12px 0 20px">Five questions, ninety seconds, and you’ll meet her.</p>
+  <button class="btn" data-open-flow>Find a nanny / japa near me</button>
+  <p class="muted" style="margin-top:14px;text-align:center">Prefer to talk? Leave your number on the form and we call back the same day. Bengaluru for now.</p>
+</section>
+
+<footer>
+  <p class="muted">Maike · a managed postpartum and infant-care service. Carers are matched on the languages and tradition you choose; we never match on where anyone is from. Photographs are illustrative. <a class="link" href="privacy.html">Privacy</a> · <a class="link" href="terms.html">Terms</a> · hello@maike.in</p>
+</footer>
+<div class="spacer"></div>
+</div>
+
+<div class="sticky" id="sticky"><button class="btn" data-open-flow>Find a nanny / japa near me</button></div>
+
+<div id="flow" role="dialog" aria-modal="true" aria-label="Find a carer">
+  <div class="fhead"><button id="fback" aria-label="Back">‹</button><div class="progress" id="fprog"></div><button class="close" id="fclose">Close</button></div>
+  <div class="fbody"><div id="fview"></div></div>
+  <div class="ffoot" id="ffoot"></div>
+</div>
+
+<script>
+(() => {
+const TRADITIONS = [
+  { id: "tamil", label: "Tamil", nm: "pathiyam", food: "Milagu rasam with ghee, angaya podi, paruppu thuvaiyal, kanji with omam at night, sukku with jaggery, garlic and murungai for milk.", body: "Alternate-day oil bath with warmed nallennai, sheeyakai for the hair, dried over sambrani smoke so no cold sets in. Dinner before seven.", baby: "Gingelly oil warmed with ginger and pepper before the bath.", days: "Day 11, the first ritual bath; again on days 15, 18 and 21. After 45 days she touches salt and tamarind and returns to the kitchen." },
+  { id: "kannada", label: "Kannada / Udupi", nm: "baananthi", food: "Rava ganji on day one, menasina saaru, soppu palya at every meal, sabsige soppu rice for milk, antina unde to regain strength; on the coast, kaljeerige kashaya with ole bella.", body: "Warm coconut or ponne oil massage before a hot bath, daily from about day ten; coconut milk in the bath from day thirty. Indoors for forty days.", baby: "Coconut-oil massage within the first days; day six is kept quiet, no bath or massage.", days: "Day 16, bale tottil, the cradle and naming. Day 40, she bathes, draws water, visits the temple." },
+  { id: "kerala", label: "Kerala", nm: "prasava raksha", food: "Muringa ila choru with garlic and shallots, jeeraka kozhi varattiyathu every few days, ulli lehyam and uluva lehyam, kashayam decoctions; gingelly oil in the kitchen.", body: "Abhyanga with medicated oil from day seven (later after a C-section), hot medicated bath, udwarthanam for the belly, the 28-day massage course.", baby: "Gentle oil massage, then a herbal bath.", days: "Day 28, noolukettu: the name whispered three times in the right ear, kanmashi kajal, the aranjanam thread tied by the father. Rest to ninety days where the family keeps it." },
+  { id: "telugu", label: "Telugu", nm: "purudu · balintha", food: "Garlic at the centre of everything, pepper, greens fried with plain rice; pongali on day twenty-one.", body: "Puriti snanam: sesame oil with herbs, turmeric-and-neem water, baths on the odd days: 11, 13, 15, 17, 19.", baby: "Kajal on the forehead and the sole, a black thread, a garlic garland.", days: "Day 21, the celebratory bath and pongali puja that ends purudu; barasala, the cradle and naming, the name written in rice." },
+  { id: "punjabi", label: "Punjabi / North", nm: "sawa mahina · jaapa", food: "Panjiri and gond ke laddoo, harira hot before breakfast, saunth with gur, posto halwa, ajwain and methi water, moong khichdi. Nothing cold, nothing raw.", body: "Daily maalish, the pet bandhna belly band, head and feet covered, weekly baths in winter. Indoors; no guests for the first weeks.", baby: "Mustard-oil massage in many homes; kajal and a tika against nazar.", days: "Chhatti on day 6, barahi on day 12, sohar songs, the naming around day twelve." },
+  { id: "gujarati", label: "Gujarati", nm: "katlu days", food: "Katlu with batrisu (ghee, gund, wheat, copra, dill, poppy and the thirty-two herbs) two or three times a day from the first week; raab, sukhdi, methi thepla.", body: "Maalish and the forty-day rest, as the family keeps it.", baby: "Oil massage and bath on her legs.", days: "Day 6, chhathi na lekh: a diya, a blank page and a red pen left for Vidhaata to write the child’s destiny; kankoo footprints." },
+  { id: "maharashtrian", label: "Maharashtrian", nm: "balantpan", food: "Dinkache ladoo, alivache ladoo and kheer, methiche ladoo and varan, shepuchi bhaji, moong in place of toor; balant kadha in its three stages, days 1–10, 11–20, 21 on.", body: "Belly bound in cotton cloth, warm oil, rest.", baby: "Oil massage and bath on her legs.", days: "The twelfth-day barse naming, where the family keeps it." },
+  { id: "bengali", label: "Bengali", nm: "antur · ekushe", food: "“Hot” foods, ghee, honey, warming spices; the first rice on day three or seven; no big fish, pulses or curd for the first weeks.", body: "The antur ghor kept quiet with one or two visitors; day five panch uthani; the full bath and return on day 21 or 30, ekushe.", baby: "Mustard oil, a black dot and the waist thread against nazar.", days: "Day 6, shashthi, the pen and paper left for Bidhata; day 8 atkadai, eight fried things; the name around day ten." },
+];
+const tradChips = document.getElementById("tradchips"), tradBox = document.getElementById("tradbox");
+let trad = "tamil";
+function renderTrad() {
+  tradChips.innerHTML = TRADITIONS.map((t) => `<button class="chip ${t.id === trad ? "on" : ""}" role="tab" aria-selected="${t.id === trad}" data-t="${t.id}">${t.label}</button>`).join("");
+  const t = TRADITIONS.find((x) => x.id === trad);
+  tradBox.innerHTML = `<div><h3>In many ${t.label} homes</h3><span class="nm">${t.nm}</span></div><div class="tgrid"><div><b>What she’ll cook for you</b><p>${t.food}</p></div><div><b>How she’ll care for you</b><p>${t.body}</p></div><div><b>For the baby</b><p>${t.baby}</p></div><div><b>The days you’ll mark</b><p>${t.days}</p></div></div>`;
+}
+tradChips.addEventListener("click", (e) => { const b = e.target.closest("[data-t]"); if (b) { trad = b.dataset.t; renderTrad(); } });
+renderTrad();
+
+const AREAS = [["Koramangala 3rd Block", 1], ["Koramangala 5th Block", 1], ["Indiranagar, 100 Feet Road", 1], ["HSR Layout Sector 2", 1], ["Jayanagar 4th Block", 1], ["Church Street / MG Road", 1], ["Richmond Town", 1], ["Whitefield", 0], ["Sarjapur Road", 0], ["Hebbal", 0]];
+const KM = { "Koramangala 3rd Block": { kor: 0.6, hsr: 3.1, ind: 4.2, jay: 5.4, mg: 4.0 }, "Koramangala 5th Block": { kor: 0.9, hsr: 2.6, ind: 4.6, jay: 5.1, mg: 4.4 }, "Indiranagar, 100 Feet Road": { kor: 4.3, hsr: 7.2, ind: 0.8, jay: 8.9, mg: 3.6 }, "HSR Layout Sector 2": { kor: 3.0, hsr: 0.7, ind: 7.4, jay: 6.8, mg: 7.1 }, "Jayanagar 4th Block": { kor: 5.2, hsr: 6.9, ind: 9.1, jay: 0.5, mg: 5.8 }, "Church Street / MG Road": { kor: 4.1, hsr: 7.0, ind: 3.4, jay: 5.9, mg: 0.4 }, "Richmond Town": { kor: 3.5, hsr: 6.4, ind: 4.0, jay: 4.6, mg: 1.6 } };
+const LANGS = [["Tamil", "தமிழ்"], ["Kannada", "ಕನ್ನಡ"], ["Telugu", "తెలుగు"], ["Malayalam", "മലയാളം"], ["Hindi", "हिन्दी"], ["English", "English"], ["Marathi", "मराठी"], ["Bengali", "বাংলা"]];
+const DIET = ["Vegetarian", "Non-vegetarian", "Eggetarian", "Jain"];
+const TRAD_LABEL = Object.fromEntries(TRADITIONS.map((t) => [t.id, t.label]));
+const CARERS = [
+  { id: "lakshmi", name: "Lakshmi R.", full: "Lakshmi Rajan", img: "assets/img/carer-lakshmi.jpg", langs: ["Tamil", "Kannada"], trads: ["tamil", "kannada"], yrs: 9, fams: 27, rating: 4.9, zone: "kor", modes: "Day or live-in", availIn: 2, newish: false,
+    intro: "“Naan Lakshmi. Onbathu varusham-a puthu ammakal-oda irukken. Raathiri feed-ku naan irupen, neenga thoongunga. Milagu rasam, keerai, kanji, unga amma pannra maadhiri pannuven.”",
+    refs: ["“She noticed my stitches weren’t healing before I did and told the nurse.” · family in Koramangala, 2026", "“Our son slept through from week five. She never once made me feel I was doing it wrong.” · family in Jayanagar, 2025"],
+    ledger: [["Police verification", "Completed 3 Mar 2026"], ["Aadhaar and PAN", "Verified 3 Mar 2026"], ["Reference 1, called by us", "11 Mar 2026"], ["Reference 2, called by us", "12 Mar 2026"], ["40-hour postpartum protocol", "Certified 22 Mar 2026"], ["Tamil pathiyam module", "Certified 22 Mar 2026"], ["Shadowed shifts", "3 of 3"], ["Re-referenced after last family", "9 Sep 2026"]] },
+  { id: "mary", name: "Mary J.", full: "Mary Joseph", img: "assets/img/carer-mary.jpg", langs: ["Malayalam", "Tamil", "English"], trads: ["kerala", "tamil"], yrs: 6, fams: 14, rating: 4.8, zone: "hsr", modes: "Day only", availIn: 4, newish: false,
+    intro: "“I’m Mary. Six years with new mothers in Bengaluru and Kochi. Muringa ila choru, ulli lehyam, the oil the way your amma would warm it, and I keep the log so the nurse always knows how you are.”",
+    refs: ["“Calm. That’s the word. The flat felt calm when she was in it.” · family in HSR Layout, 2026"],
+    ledger: [["Police verification", "Completed 18 Jan 2026"], ["Aadhaar and PAN", "Verified 18 Jan 2026"], ["Reference 1, called by us", "24 Jan 2026"], ["Reference 2, called by us", "27 Jan 2026"], ["40-hour postpartum protocol", "Certified 9 Feb 2026"], ["Kerala prasava raksha module", "Certified 9 Feb 2026"], ["Shadowed shifts", "3 of 3"], ["Re-referenced after last family", "30 Aug 2026"]] },
+  { id: "pushpa", name: "Pushpa K.", full: "Pushpa Kumari", img: "assets/img/carer-pushpa.jpg", langs: ["Kannada", "Tamil", "Hindi"], trads: ["kannada", "tamil"], yrs: 4, fams: 2, rating: null, zone: "jay", modes: "Day or live-in", availIn: 1, newish: true,
+    intro: "“Naanu Pushpa. Naalku varsha hosa ammandira jote kelsa maadiddene. Mod-alu Maike jote eradu kutumba. Menasina saaru, soppu palya, nimma amma maadodannu naanu maadtini.”",
+    refs: ["“Quiet, careful, early every day.” · family in Jayanagar, 2026"],
+    ledger: [["Police verification", "Completed 2 Aug 2026"], ["Aadhaar and PAN", "Verified 2 Aug 2026"], ["Reference 1, called by us", "8 Aug 2026"], ["Reference 2, called by us", "8 Aug 2026"], ["40-hour postpartum protocol", "Certified 21 Aug 2026"], ["Kannada baananthi module", "Certified 21 Aug 2026"], ["Shadowed shifts", "3 of 3"]] },
+  { id: "shanthi", name: "Shanthi V.", full: "Shanthi Venkatesh", img: null, langs: ["Telugu", "Kannada", "Hindi"], trads: ["telugu", "kannada"], yrs: 11, fams: 38, rating: 4.9, zone: "ind", modes: "Day or live-in", availIn: 3, newish: false,
+    intro: "“Nenu Shanthi. Padakondu samvatsaralu kotha ammalatho unnanu. Vellulli, miriyalu, puriti snanam, meeru nidrapondi, nenu unnanu.”", refs: ["“Eleven years shows. She has seen everything and panics about nothing.” · family in Indiranagar, 2025"],
+    ledger: [["Police verification", "Completed 14 Nov 2025"], ["Aadhaar and PAN", "Verified 14 Nov 2025"], ["Reference 1, called by us", "20 Nov 2025"], ["Reference 2, called by us", "21 Nov 2025"], ["40-hour postpartum protocol", "Certified 6 Dec 2025"], ["Telugu purudu module", "Certified 6 Dec 2025"], ["Shadowed shifts", "3 of 3"], ["Re-referenced after last family", "2 Oct 2026"]] },
+  { id: "rekha", name: "Rekha D.", full: "Rekha Devi", img: null, langs: ["Hindi", "English"], trads: ["punjabi"], yrs: 8, fams: 22, rating: 4.8, zone: "mg", modes: "Day or live-in", availIn: 2, newish: false,
+    intro: "“Main Rekha hoon. Aath saal se nayi maaon ke saath. Panjiri, gond ke laddoo, harira subah, jo aapki mummy banati, woh main banaungi.”", refs: ["“My mother-in-law approved of her, which is a miracle.” · family in Richmond Town, 2026"],
+    ledger: [["Police verification", "Completed 9 Feb 2026"], ["Aadhaar and PAN", "Verified 9 Feb 2026"], ["Reference 1, called by us", "15 Feb 2026"], ["Reference 2, called by us", "16 Feb 2026"], ["40-hour postpartum protocol", "Certified 1 Mar 2026"], ["Punjabi sawa mahina module", "Certified 1 Mar 2026"], ["Shadowed shifts", "3 of 3"], ["Re-referenced after last family", "19 Sep 2026"]] },
+  { id: "geetha", name: "Geetha M.", full: "Geetha Murthy", img: null, langs: ["Kannada", "English"], trads: ["kannada"], yrs: 7, fams: 19, rating: 4.7, zone: "jay", modes: "Day only", availIn: 5, newish: false,
+    intro: "“Naanu Geetha. Elu varsha. Rava ganji, antina unde, ragi ganji, nimma amma maadodannu naanu maadtini.”", refs: ["“She taught my husband to burp the baby. He still does it her way.” · family in Jayanagar, 2026"],
+    ledger: [["Police verification", "Completed 27 Apr 2026"], ["Aadhaar and PAN", "Verified 27 Apr 2026"], ["Reference 1, called by us", "3 May 2026"], ["Reference 2, called by us", "4 May 2026"], ["40-hour postpartum protocol", "Certified 18 May 2026"], ["Kannada baananthi module", "Certified 18 May 2026"], ["Shadowed shifts", "3 of 3"]] },
+];
+
+const S = { stage: null, date: "", area: "", covered: true, langs: [], trad: "", diet: "", first: null, older: false, elders: false, start: "", startIn: 7, startLabel: "", results: [], carer: null, phone: "", mode: "day12", pay: "full", hold: false };
+const fmtD = (d) => d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+const addDays = (n) => { const d = new Date(); d.setDate(d.getDate() + n); return d; };
+// Days from today to a yyyy-mm-dd date plus an offset, never less than 1 (tomorrow).
+const daysTo = (iso, off) => { const t = new Date(); t.setHours(0, 0, 0, 0); const d = new Date(iso + "T00:00:00"); d.setDate(d.getDate() + off); return Math.max(1, Math.round((d - t) / 864e5)); };
+// The day she would actually start: the family's chosen start, or later if she is only free later.
+const isoLocal = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const startFor = (c) => Math.max(c.availIn, S.startIn ?? c.availIn);
+const money = (n) => "₹" + n.toLocaleString("en-IN");
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+const opts = [...document.querySelectorAll("#stage .opt")], cta = document.getElementById("cta");
+opts.forEach((o) => o.addEventListener("click", () => {
+  S.stage = o.dataset.stage; opts.forEach((x) => x.setAttribute("aria-checked", String(x === o)));
+  ["expecting", "here", "planning"].forEach((s) => document.getElementById("d-" + s).classList.toggle("show", s === S.stage));
+  cta.textContent = { expecting: "Find a nanny / japa near me", here: "Who can start tomorrow?", planning: "Keep my number" }[S.stage];
+}));
+document.getElementById("stage").addEventListener("submit", (e) => {
+  e.preventDefault(); const done = document.getElementById("done");
+  if (!S.stage) { done.hidden = false; done.textContent = "Pick where you are first."; return; }
+  if (S.stage === "planning") { const wa = document.getElementById("wa").value.trim(); if (wa.replace(/\D/g, "").length < 10) { done.hidden = false; done.textContent = "Leave a WhatsApp number so we can reach you."; return; } window.MAIKE && MAIKE.lead({ source: "first-ten-weeks", event: "planning", phone: wa, stage: "planning" }); done.hidden = false; done.textContent = "Noted. We’ll message you on WhatsApp. We’ll be here when you need us."; return; }
+  S.date = (S.stage === "expecting" ? document.getElementById("due").value : document.getElementById("dob").value) || "";
+  openFlow();
+});
+document.querySelectorAll("[data-open-flow]").forEach((b) => b.addEventListener("click", () => { if (!S.stage) S.stage = "expecting"; openFlow(); }));
+const sticky = document.getElementById("sticky"), hero = document.getElementById("top");
+if ("IntersectionObserver" in window) new IntersectionObserver(([en]) => sticky.classList.toggle("on", !en.isIntersecting), { threshold: 0.05 }).observe(hero);
+
+const flow = document.getElementById("flow"), view = document.getElementById("fview"), foot = document.getElementById("ffoot"), prog = document.getElementById("fprog");
+const ORDER = ["area", "lang", "trad", "home", "start", "results"];
+let screen = "area"; const history = [];
+function openFlow() { flow.classList.add("open"); document.body.classList.add("locked"); history.length = 0; go("area"); }
+function closeFlow() { flow.classList.remove("open"); document.body.classList.remove("locked"); }
+function go(s, push = true) { if (push && screen !== s) history.push(screen); screen = s; render(); view.parentElement.scrollTop = 0; }
+document.getElementById("fclose").onclick = closeFlow;
+document.getElementById("fback").onclick = () => { const prev = history.pop(); if (prev) go(prev, false); else closeFlow(); };
+function progress() { const i = ORDER.indexOf(screen), on = i < 0 ? 6 : i + 1; prog.innerHTML = Array.from({ length: 6 }, (_, k) => `<i class="${k < on ? "on" : ""}"></i>`).join(""); prog.style.visibility = i < 0 ? "hidden" : "visible"; }
+
+function rankCarers() {
+  const km = KM[S.area] || {};
+  return CARERS.map((c) => {
+    const lh = c.langs.filter((l) => S.langs.includes(l)).length;
+    const lscore = (c.langs.includes(S.langs[0]) ? 50 : 0) + (S.langs[1] && c.langs.includes(S.langs[1]) ? 20 : 0);
+    const th = S.trad && c.trads.includes(S.trad) ? 1 : 0;
+    const avail = c.availIn <= (S.startIn ?? 7);
+    const score = lscore + th * 35 + Math.min(c.yrs, 10) * 2 + Math.min(c.fams, 30) + (c.rating || 4.5) * 2 - (km[c.zone] || 6) * 4;
+    return { c, lh, th, avail, score, km: km[c.zone] };
+  }).filter((m) => m.lh > 0 && m.avail).sort((a, b) => b.score - a.score).slice(0, 3);
+}
+
+const V = {
+  area: () => ({
+    body: `<p class="q">Where is home?</p><p class="muted">We match within your area so she can be there by 7 am, every day.</p>
+      <input class="in" id="area-in" placeholder="Society, street or area" value="${esc(S.area)}" autocomplete="off">
+      <div class="sugg" id="area-list">${AREAS.map(([a, ok]) => `<button data-area="${esc(a)}" class="${ok ? "" : "na"}">${esc(a)}<span>${ok ? "Covered" : "Not yet"}</span></button>`).join("")}</div>
+      <button class="btn ghost" id="gps">Use my location</button>`,
+    foot: `<button class="btn" id="next" ${S.area ? "" : "disabled"}>Next</button>`,
+    wire: () => {
+      const inp = document.getElementById("area-in"), list = document.getElementById("area-list");
+      const filter = () => { const q = inp.value.toLowerCase(); [...list.children].forEach((b) => b.hidden = q && !b.dataset.area.toLowerCase().includes(q)); };
+      inp.addEventListener("input", () => { S.area = ""; document.getElementById("next").disabled = true; filter(); });
+      list.addEventListener("click", (e) => { const b = e.target.closest("[data-area]"); if (!b) return; S.area = b.dataset.area; S.covered = !b.classList.contains("na"); inp.value = S.area; filter(); document.getElementById("next").disabled = false; });
+      document.getElementById("gps").onclick = () => { S.area = "Koramangala 3rd Block"; S.covered = true; inp.value = S.area; filter(); document.getElementById("next").disabled = false; };
+      document.getElementById("next").onclick = () => go(S.covered ? "lang" : "notyet");
+    },
+  }),
+  notyet: () => ({
+    body: `<p class="q">We’re not in ${esc(S.area)} yet.</p><p class="lede">We add areas as we train carers near them. Leave a number and we’ll call you the day we open there, or sooner, if someone from a nearby zone can come.</p>
+      <label class="lbl" for="ny-ph">WhatsApp number</label><input class="in" id="ny-ph" type="tel" placeholder="+91">`,
+    foot: `<button class="btn" id="ny-go">Call me when you’re here</button><button class="btn ghost" id="ny-back">Try another area</button>`,
+    wire: () => { document.getElementById("ny-go").onclick = () => { const ph = document.getElementById("ny-ph").value; if (ph.replace(/\D/g, "").length < 10) { document.getElementById("ny-ph").focus(); return; } S.phone = ph; window.MAIKE && MAIKE.lead({ source: "first-ten-weeks", event: "area_not_covered", phone: ph, stage: S.stage, date: S.date, area: S.area }); go("thanks"); }; document.getElementById("ny-back").onclick = () => go("area"); },
+  }),
+  thanks: () => ({ body: S.phone ? `<p class="q">Noted. We’ll call you.</p><p class="lede">Usually the same day, between 10 am and 7 pm. A WhatsApp confirmation is on its way to ${esc(S.phone)}.</p>` : `<p class="q">Noted. Where should we call?</p><p class="lede">Usually the same day, between 10 am and 7 pm.</p><label class="lbl" for="t-ph">WhatsApp number</label><input class="in" id="t-ph" type="tel" placeholder="+91">`, foot: S.phone ? `<button class="btn" id="t-close">Back to Maike</button>` : `<button class="btn" id="t-send">Call me</button>`, wire: () => { const c = document.getElementById("t-close"); if (c) c.onclick = closeFlow; const s = document.getElementById("t-send"); if (s) s.onclick = () => { const ph = document.getElementById("t-ph").value; if (ph.replace(/\D/g, "").length < 10) { document.getElementById("t-ph").focus(); return; } S.phone = ph; window.MAIKE && MAIKE.lead({ source: "first-ten-weeks", event: "video_call_request", phone: ph, stage: S.stage, date: S.date, area: S.area, langs: S.langs, tradition: S.trad, carer: S.carer && S.carer.full }); render(); }; } }),
+  lang: () => ({
+    body: `<p class="q">Which languages should she speak?</p><p class="muted">Pick up to two. This is a hard match, we won’t show anyone who can’t.</p>
+      <div class="chips" id="langs">${LANGS.map(([l, s]) => `<button class="chip ${S.langs.includes(l) ? "on" : ""}" data-l="${l}">${s}<small>${l}</small></button>`).join("")}</div>`,
+    foot: `<button class="btn" id="next" ${S.langs.length ? "" : "disabled"}>Next</button>`,
+    wire: () => {
+      document.getElementById("langs").addEventListener("click", (e) => { const b = e.target.closest("[data-l]"); if (!b) return; const l = b.dataset.l; S.langs = S.langs.includes(l) ? S.langs.filter((x) => x !== l) : [...S.langs, l].slice(-2); render(); });
+      document.getElementById("next").onclick = () => go("trad");
+    },
+  }),
+  trad: () => {
+    const t = TRADITIONS.find((x) => x.id === S.trad);
+    return {
+      body: `<p class="q">Which home did you grow up in?</p><p class="muted">She’ll cook, massage and keep the days the way it’s done there. Pick the closest; you’ll tell her what your family does differently.</p>
+        <div class="chips" id="trads">${TRADITIONS.map((x) => `<button class="chip ${S.trad === x.id ? "on" : ""}" data-t="${x.id}">${x.label}<small>${x.nm}</small></button>`).join("")}</div>
+        ${t ? `<div class="card soft"><b>In many ${t.label} homes</b><p class="muted" style="color:var(--ink-soft)">${t.food}</p></div>` : ""}
+        <p class="lbl" style="margin-top:6px">And at home you are</p>
+        <div class="chips" id="diets">${DIET.map((d) => `<button class="chip ${S.diet === d ? "on" : ""}" data-d="${d}">${d}</button>`).join("")}</div>`,
+      foot: `<button class="btn" id="next" ${S.trad ? "" : "disabled"}>Next</button>`,
+      wire: () => {
+        document.getElementById("trads").addEventListener("click", (e) => { const b = e.target.closest("[data-t]"); if (b) { S.trad = b.dataset.t; render(); } });
+        document.getElementById("diets").addEventListener("click", (e) => { const b = e.target.closest("[data-d]"); if (b) { S.diet = b.dataset.d; render(); } });
+        document.getElementById("next").onclick = () => go("home");
+      },
+    };
+  },
+  home: () => ({
+    body: `<p class="q">Who’s at home?</p><p class="muted">Three taps. It changes what we brief her on, not whether we can help.</p>
+      <p class="lbl">Is this your first baby?</p>
+      <div class="chips" id="first"><button class="chip ${S.first === true ? "on" : ""}" data-v="1">Yes, first</button><button class="chip ${S.first === false ? "on" : ""}" data-v="0">No, second or later</button></div>
+      <button class="toggle" id="older" aria-pressed="${S.older}"><div><b>An older child under 5 at home</b><span>She’ll know to keep the elder one close, not out</span></div><i></i></button>
+      <button class="toggle" id="elders" aria-pressed="${S.elders}"><div><b>Parents or in-laws living with you</b><span>She works with them, not around them, and cooks their way too if you ask</span></div><i></i></button>`,
+    foot: `<button class="btn" id="next" ${S.first === null ? "disabled" : ""}>Next</button>`,
+    wire: () => {
+      document.getElementById("first").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) { S.first = b.dataset.v === "1"; render(); } });
+      document.getElementById("older").onclick = () => { S.older = !S.older; render(); };
+      document.getElementById("elders").onclick = () => { S.elders = !S.elders; render(); };
+      document.getElementById("next").onclick = () => go("start");
+    },
+  }),
+  start: () => {
+    const exp = S.stage === "expecting";
+    const due = exp && S.date ? S.date : "";
+    const on = (n) => fmtD(addDays(n));
+    const o = exp ? (due
+      ? [["due", "From the week before my due date", `From ${on(daysTo(due, -7))}, so she is there if the baby comes early`, daysTo(due, -7)], ["before", "A few days before", `From ${on(daysTo(due, -3))}. Help setting up, meals ready for day one`, daysTo(due, -3)], ["home", "When we come home from hospital", `Around ${on(daysTo(due, 4))}, usually day 3 to 5`, daysTo(due, 4)]]
+      : [["due", "From my due date", "We hold her from the week before", 10], ["before", "A few days before", "Help setting up, meals ready for day one", 7], ["home", "When we come home from hospital", "Usually day 3 to 5", 12]]) : [["tmrw", "Tomorrow morning", "If someone in your area is free", 1], ["week", "This week", "", 4], ["pick", "On a date I choose", "", 7]];
+    return {
+      body: `<p class="q">When should she start?</p><p class="muted">${exp ? "Most families meet her once before the baby and start the week they come home." : "The sooner you say, the more carers can actually be there."}</p>
+        <div class="stack" style="gap:8px" id="starts">${o.map(([k, t, s, n]) => `<button class="opt" role="radio" aria-checked="${S.start === k}" data-k="${k}" data-n="${n}" data-t="${esc(t)}"><div><b>${t}</b>${s ? `<span>${s}</span>` : ""}</div><i></i></button>`).join("")}</div>
+        ${S.start === "pick" ? `<input class="in" type="date" id="pickdate" value="${S.pick || ""}">` : ""}`,
+      foot: `<button class="btn" id="next" ${S.start ? "" : "disabled"}>Show me who can come</button>`,
+      wire: () => {
+        document.getElementById("starts").addEventListener("click", (e) => { const b = e.target.closest("[data-k]"); if (!b) return; S.start = b.dataset.k; S.startIn = Number(b.dataset.n); S.startLabel = b.dataset.t; render(); });
+        const pd = document.getElementById("pickdate"); if (pd) pd.addEventListener("change", () => { if (!pd.value) return; S.pick = pd.value; S.startIn = daysTo(pd.value, 0); });
+        document.getElementById("next").onclick = () => { S.results = rankCarers(); go("results"); };
+      },
+    };
+  },
+  results: () => {
+    const r = S.results, by = fmtD(addDays(S.startIn ?? 7));
+    if (!r.length) return V.noresults();
+    return {
+      body: `<p class="eyebrow">Hand-picked for your home</p><p class="q">${r.length === 1 ? "One carer" : r.length + " carers"} who can start by ${by} near ${esc(S.area.split(",")[0])}</p>
+        <p class="muted">Speak ${S.langs.join(" and ")}${S.trad ? ", trained in the " + TRAD_LABEL[S.trad] + " forty days" : ""}. You choose; nobody is assigned.</p>
+        ${r.map((m, i) => card(m, i === 0)).join("")}
+        <div class="card soft"><b>None feel right?</b><p class="muted" style="color:var(--ink-soft)">Tell us what’s missing and we’ll look again, language, tradition, live-in, someone older or younger.</p><button class="btn ghost" id="none">Find me others</button></div>`,
+      foot: `<button class="btn ghost" id="callme">Call me instead</button>`,
+      wire: () => {
+        view.querySelectorAll("[data-see]").forEach((b) => b.onclick = () => { S.carer = CARERS.find((c) => c.id === b.dataset.see); go("profile"); });
+        document.getElementById("none").onclick = () => go("none");
+        document.getElementById("callme").onclick = () => go("thanks");
+      },
+    };
+  },
+  noresults: () => ({
+    body: `<p class="q">No one near ${esc(S.area.split(",")[0])} speaks ${S.langs.join(" or ")} and can start by ${fmtD(addDays(S.startIn ?? 7))}, yet.</p>
+      <p class="lede">That’s on us, not you. Leave a number: we’re calling today with either a carer from a nearby zone or an honest date.</p>
+      <label class="lbl" for="nr-ph">WhatsApp number</label><input class="in" id="nr-ph" type="tel" placeholder="+91">`,
+    foot: `<button class="btn" id="nr-go">Call me today</button><button class="btn ghost" id="nr-back">Change my answers</button>`,
+    wire: () => { document.getElementById("nr-go").onclick = () => go("thanks"); document.getElementById("nr-back").onclick = () => go("lang"); },
+  }),
+  none: () => ({
+    body: `<p class="q">What’s missing?</p><div class="chips" id="why">${["Another language", "A different tradition", "Live-in only", "Someone more experienced", "Someone younger", "Closer to home", "Something else"].map((w) => `<button class="chip" data-w="${w}">${w}</button>`).join("")}</div><p class="muted">We’ll come back within a day with two more.</p>`,
+    foot: `<button class="btn" id="none-go">Send</button>`,
+    wire: () => { document.getElementById("why").addEventListener("click", (e) => { const b = e.target.closest("[data-w]"); if (b) b.classList.toggle("on"); }); document.getElementById("none-go").onclick = () => go("thanks"); },
+  }),
+  profile: () => {
+    const c = S.carer, km = (KM[S.area] || {})[c.zone];
+    return {
+      body: `<div class="row">${c.img ? `<img class="avatar big" src="${c.img}" alt="">` : `<div class="avatar big">${c.name[0]}</div>`}<div><p class="q" style="font-size:30px">${c.full}</p><p class="muted">${c.newish ? `New to Maike · ${c.yrs} yrs before us · ${c.fams} families with us` : `${c.yrs} years postpartum care · ${c.fams} families · ${c.rating}`}</p></div></div>
+        <div class="tags">${c.langs.map((l) => `<span class="tag ${S.langs.includes(l) ? "hit" : ""}">${l}</span>`).join("")}${c.trads.map((t) => `<span class="tag ${S.trad === t ? "hit" : ""}">${TRAD_LABEL[t]} forty days</span>`).join("")}<span class="tag">${c.modes}</span></div>
+        <div class="card soft"><span style="color:var(--sage);font-weight:700;font-size:14px">▶ Her introduction, 20 s</span><p class="quote" style="font-size:19px">${c.intro}</p></div>
+        <div class="card"><p class="eyebrow" style="margin-bottom:4px">Verified, with dates</p><div class="ledger">${c.ledger.map(([k, v]) => `<div><b>${k}</b><span>${v}</span></div>`).join("")}</div><p class="fine">Everything above was checked by Maike, not self-reported.</p></div>
+        <div class="card"><p class="eyebrow" style="margin-bottom:4px">From families, when we called them</p>${c.refs.map((q) => `<p class="muted" style="color:var(--ink-soft)">${q}</p>`).join("")}</div>
+        <div class="card"><p class="eyebrow" style="margin-bottom:4px">What she does</p><p class="muted" style="color:var(--ink-soft)">Newborn care, your recovery and massage, feeding support, your tradition’s meals, the daily log. ${c.modes === "Day only" ? "Day shifts only, up to 12 hours." : "Day shifts or live-in."}</p><p class="eyebrow" style="margin:10px 0 4px">What she doesn’t</p><p class="muted" style="color:var(--ink-soft)">Household chores, cooking for the rest of the family, anything medical, the nurse and your doctor do that.</p></div>
+        <div class="card soft"><div class="row sb"><b>Can start ${fmtD(addDays(startFor(c)))}</b><span class="muted">${km ? km + " km from you" : ""}</span></div><div class="row sb"><b>${c.modes}</b><span class="muted">meet her before you pay</span></div></div>`,
+      foot: `<button class="btn" id="choose">Choose ${c.name.split(" ")[0]}</button><div class="row" style="gap:8px"><button class="btn ghost" id="video" style="flex:1;min-height:46px;font-size:15px">Ask for a video call</button><button class="btn ghost" id="hold" style="flex:1;min-height:46px;font-size:15px">Hold her 48 h · ₹5,000</button></div>`,
+      wire: () => { document.getElementById("choose").onclick = () => { S.hold = false; go("otp"); }; document.getElementById("hold").onclick = () => { S.hold = true; go("otp"); }; document.getElementById("video").onclick = () => go("thanks"); },
+    };
+  },
+  otp: () => ({
+    body: `<p class="q">${S.hold ? `Hold ${S.carer.name.split(" ")[0]} for 48 hours` : `Good choice. Let’s make it ${S.carer.name.split(" ")[0]}’s.`}</p><p class="muted">Your number, so she and the nurse can reach you. We’ll send a code.</p>
+      <label class="lbl" for="ph">Mobile</label><input class="in" id="ph" type="tel" placeholder="+91" value="${esc(S.phone)}">
+      <label class="lbl">Code</label><div class="otp"><input class="in" maxlength="1" inputmode="numeric"><input class="in" maxlength="1" inputmode="numeric"><input class="in" maxlength="1" inputmode="numeric"><input class="in" maxlength="1" inputmode="numeric"></div><p class="fine">Code arrives on WhatsApp; SMS if you’d rather.</p>`,
+    foot: `<button class="btn" id="next">Continue</button>`,
+    wire: () => { const ins = [...view.querySelectorAll(".otp input")]; ins.forEach((i, k) => i.addEventListener("input", () => { if (i.value && ins[k + 1]) ins[k + 1].focus(); })); document.getElementById("next").onclick = () => { S.phone = document.getElementById("ph").value; if (S.phone.replace(/\D/g, "").length < 10) { document.getElementById("ph").focus(); return; } window.MAIKE && MAIKE.lead({ source: "first-ten-weeks", event: S.hold ? "carer_hold" : "carer_chosen", phone: S.phone, stage: S.stage, date: S.date, area: S.area, langs: S.langs, tradition: S.trad, diet: S.diet, start: S.start, carer: S.carer && S.carer.full }); go(S.hold ? "pay" : "schedule"); }; },
+  }),
+  schedule: () => {
+    const base = 90000, modes = [["day12", "Day, 12 hours", "7 am – 7 pm, the standard package", 0], ["day8", "Day, 8 hours", "Pick your window", -15000], ["livein", "Live-in", "24 hours; her own rest hours agreed with you", 30000]];
+    const extra = modes.find((m) => m[0] === S.mode)[3];
+    return {
+      body: `<p class="q">When, and how much of the day?</p>
+        <label class="lbl" for="sd">Start date</label><input class="in" id="sd" type="date" value="${isoLocal(addDays(startFor(S.carer)))}" min="${isoLocal(addDays(S.carer.availIn))}">
+        <div class="stack" style="gap:8px" id="modes">${modes.map(([k, t, s, d]) => `<button class="opt" role="radio" aria-checked="${S.mode === k}" data-m="${k}"><div><b>${t}</b><span>${s}</span></div><span style="font-weight:700;white-space:nowrap">${d === 0 ? "₹90,000" : (d > 0 ? "+" : "−") + money(Math.abs(d))}</span><i style="margin-left:10px"></i></button>`).join("")}</div>
+        <div class="card deep"><div class="price"><strong>${money(base + extra)}</strong><small>10 weeks · ${money(Math.round((base + extra) / 6))} × 6 months</small></div></div>`,
+      foot: `<button class="btn" id="next">Next</button>`,
+      wire: () => { const sd = document.getElementById("sd"); sd.addEventListener("change", () => { if (sd.value) S.startIn = daysTo(sd.value, 0); }); document.getElementById("modes").addEventListener("click", (e) => { const b = e.target.closest("[data-m]"); if (b) { S.mode = b.dataset.m; render(); } }); document.getElementById("next").onclick = () => go("household"); },
+    };
+  },
+  household: () => ({
+    body: `<p class="q">A few things she’ll need to know</p>
+      <label class="lbl" for="pn">Partner’s mobile, the log and the nurse’s notes go to both of you</label><input class="in" id="pn" type="tel" placeholder="+91">
+      <label class="lbl" for="flat">Flat and tower</label><input class="in" id="flat" placeholder="e.g. B-1204, Prestige Acropolis">
+      <button class="toggle" id="lift" aria-pressed="true"><div><b>Lift to your floor</b><span>So she can plan the pram and the shopping</span></div><i></i></button>
+      <button class="toggle" id="pets" aria-pressed="false"><div><b>Pets at home</b><span>We’ll match someone comfortable with them</span></div><i></i></button>
+      <label class="lbl" for="hosp">Delivery hospital and doctor (optional)</label><input class="in" id="hosp" placeholder="e.g. Cloudnine Old Airport Road, Dr Rao">
+      <label class="lbl" for="fam">Anything your family does differently in the forty days (optional)</label><input class="in" id="fam" placeholder="e.g. no oil bath till day 11; amma’s laddoo recipe">`,
+    foot: `<button class="btn" id="next">See the price</button>`,
+    wire: () => { ["lift", "pets"].forEach((id) => { const b = document.getElementById(id); b.onclick = () => b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); }); document.getElementById("next").onclick = () => { S.partner = document.getElementById("pn").value; S.flat = document.getElementById("flat").value; S.hosp = document.getElementById("hosp").value; S.fam = document.getElementById("fam").value; go("pay"); }; },
+  }),
+  pay: () => {
+    const extra = { day12: 0, day8: -15000, livein: 30000 }[S.mode], total = 90000 + extra, c = S.carer;
+    if (S.hold) return {
+      body: `<p class="q">Hold ${c.name.split(" ")[0]} for 48 hours</p><p class="lede">₹5,000 now, fully adjusted against the package if you go ahead, refunded if you don’t. She won’t be offered to another family until ${fmtD(addDays(2))}, 6 pm.</p>
+        <div class="card"><div class="total"><span>Hold</span><b>₹5,000</b></div><div class="total big"><span>Pay now</span><span>₹5,000</span></div></div><p class="fine">UPI, cards and net banking via Razorpay. Payment is collected after the nurse’s call, not here.</p>`,
+      foot: `<button class="btn" id="paynow">Pay ₹5,000 and hold her</button>`, wire: () => { document.getElementById("paynow").onclick = () => go("confirm"); },
+    };
+    return {
+      body: `<p class="q">The price, in full</p>
+        <div class="card"><div class="total"><span>The First Ten Weeks</span><b>₹90,000</b></div>${extra ? `<div class="total"><span>${S.mode === "livein" ? "Live-in" : "8-hour day"}</span><b>${extra > 0 ? "+" : "−"}${money(Math.abs(extra))}</b></div>` : ""}<div class="total big"><span>Total</span><span>${money(total)}</span></div></div>
+        <div class="stack" style="gap:8px" id="pays">${[["full", "Pay in full", money(total) + " once"], ["emi", "Six monthly payments", money(Math.round(total / 6)) + " a month, no interest"], ["hold", "Not yet, hold her 48 hours", "₹5,000, adjusted"]].map(([k, t, s]) => `<button class="opt" role="radio" aria-checked="${S.pay === k}" data-p="${k}"><div><b>${t}</b><span>${s}</span></div><i></i></button>`).join("")}</div>
+        <p class="fine">Full refund if she hasn’t started. After that, unused weeks are refunded pro rata. UPI, cards and net banking via Razorpay. Payment is collected after the nurse’s call, not here.</p>`,
+      foot: `<button class="btn" id="paynow">${S.pay === "hold" ? "Pay ₹5,000 and hold her" : S.pay === "emi" ? "Pay " + money(Math.round(total / 6)) + " now" : "Pay " + money(total)}</button>`,
+      wire: () => { document.getElementById("pays").addEventListener("click", (e) => { const b = e.target.closest("[data-p]"); if (b) { S.pay = b.dataset.p; S.hold = S.pay === "hold"; render(); } }); document.getElementById("paynow").onclick = () => go("confirm"); },
+    };
+  },
+  confirm: () => {
+    const c = S.carer, f = c.name.split(" ")[0];
+    return {
+      body: `<p class="eyebrow">${S.hold ? "Held" : "Confirmed"}</p><p class="q">${S.hold ? `${f} is held for you until ${fmtD(addDays(2))}, 6 pm.` : `${f} starts ${fmtD(addDays(startFor(c)))}, 7 am.`}</p>
+        <div class="card"><div class="row">${c.img ? `<img class="avatar" src="${c.img}" alt="">` : `<div class="avatar">${c.name[0]}</div>`}<div><b>${c.full}</b><p class="muted">${c.langs.join(" · ")} · ${TRAD_LABEL[c.trads[0]]} forty days</p></div></div></div>
+        <div class="card soft"><p class="eyebrow" style="margin-bottom:4px">What happens next</p><div class="log"><div><time>Today</time><div><b>Nurse Kavitha calls you</b><span>15 minutes: your delivery, feeding plan, what your family does in the forty days. Pick a slot on WhatsApp.</span></div></div><div><time>${S.hold ? "48 h" : "Day −2"}</time><div><b>${S.hold ? "Your decision" : `${f} visits for 30 minutes`}</b><span>${S.hold ? "Go ahead, or let her go, no questions." : "Sees the flat, meets you both, sets the first-week plan and the food list."}</span></div></div><div><time>Day 1</time><div><b>7 am, she’s at the door</b><span>The log starts. The care line is open.</span></div></div></div></div>
+        <p class="fine">A confirmation and the care line number are on their way to ${esc(S.phone || "your number")}${S.partner ? " and your partner" : ""} on WhatsApp.</p>`,
+      foot: `<button class="btn" id="fin">Done</button>`, wire: () => { if (!S.sent) { S.sent = true; window.MAIKE && MAIKE.lead({ source: "first-ten-weeks", event: S.hold ? "hold_confirmed" : "booking_confirmed", phone: S.phone, partner: S.partner, stage: S.stage, date: S.date, area: S.area, langs: S.langs, tradition: S.trad, carer: S.carer && S.carer.full, mode: S.mode, pay: S.pay, flat: S.flat, hospital: S.hosp, notes: S.fam }); } document.getElementById("fin").onclick = closeFlow; },
+    };
+  },
+};
+
+function card(m, best) {
+  const c = m.c;
+  return `<button class="ccard ${best ? "best" : ""}" data-see="${c.id}">
+    ${best ? `<span class="bestlbl">Best match for your home</span>` : ""}
+    <div class="row">${c.img ? `<img class="avatar" src="${c.img}" alt="">` : `<div class="avatar">${c.name[0]}</div>`}<div style="flex:1;min-width:0"><div class="nm">${c.name}</div><div class="tags">${c.langs.map((l) => `<span class="tag ${S.langs.includes(l) ? "hit" : ""}">${l}</span>`).join("")}${c.trads.filter((t) => t === S.trad).map((t) => `<span class="tag hit">${TRAD_LABEL[t]} forty days</span>`).join("")}</div></div></div>
+    <div class="meta">${c.newish ? `New to Maike · ${c.yrs} yrs before us · 3 shadowed shifts` : `${c.yrs} years · ${c.fams} families · ${c.rating}`}</div>
+    <div class="badges"><span class="badge">Police ✓</span><span class="badge">2 references ✓</span><span class="badge">Protocol ✓</span></div>
+    <div class="row sb"><span class="meta">Can start ${fmtD(addDays(startFor(c)))}${m.km ? ` · ${m.km} km` : ""}</span><span class="play"><i>▶</i>20 s intro</span></div>
+    <div class="row sb"><span class="meta">${c.modes}</span><b style="color:var(--rose)">See ${c.name.split(" ")[0]} ›</b></div>
+  </button>`;
+}
+function render() { const v = V[screen](); view.innerHTML = v.body; foot.innerHTML = `<div>${v.foot}</div>`; progress(); v.wire && v.wire(); }
+})();
+</script>
+
+</body>
+</html>

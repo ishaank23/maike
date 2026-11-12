@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terms · Maike</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FDF9F7; --blush:#F9E7EA; --lilac:#F4EEF2; --card:#FFFFFF; --line:#EAD9DE;
+  --ink:#3A3236; --ink-soft:#6B5E66; --muted:#9A8C93;
+  --rose:#C65A7C; --rose-ink:#FFFFFF; --rose-soft:#FBE7EE;
+  --sage:#6E9E8C; --sage-soft:#E8F1ED; --deep:#5B3A4E; --deep-fg:#F8EEF2; --deep-muted:#D3BCC6; --gold:#C9A46B;
+  --display:"Literata",Georgia,"Times New Roman",serif; --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.page{max-width:560px;margin:0 auto}
+section,header,footer{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:36px}
+.blush{background:var(--blush)}.lilac{background:var(--lilac)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,10vw,50px)}
+h2{font-size:34px;margin-bottom:12px}
+h3{font-size:24px}
+p{margin:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.lede{font-size:17px;color:var(--ink-soft);max-width:36em}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:14px}
+header{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
+.brand{font-family:var(--display);font-size:26px;font-weight:600;color:var(--rose);text-decoration:none}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.nav{display:flex;gap:12px;white-space:nowrap}
+.link{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.photo{width:100%;display:block;border-radius:26px;object-fit:cover}
+.hero-photo{aspect-ratio:4/3.2}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:999px;padding:14px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;background:var(--rose);color:var(--rose-ink);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.offer{background:var(--card);border:1.5px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.offer img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.offer .body{padding:18px;display:flex;flex-direction:column;gap:10px}
+.offer .when{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.offer .pr{font-family:var(--display);font-size:30px;font-weight:600;line-height:1}
+.offer .pr small{font-family:var(--body);font-size:14px;color:var(--muted);font-weight:600}
+.incl{display:flex;flex-direction:column;gap:7px;font-size:15px;color:var(--ink-soft)}
+.incl div{display:flex;gap:10px}.incl div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:.62em}
+.tl{display:flex;flex-direction:column}
+.tl>div{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tl>div:last-child{border-bottom:0}
+.tl time{font-family:var(--display);font-size:20px;font-weight:600;color:var(--rose);line-height:1.1;padding-top:2px}
+.tl b{display:block;font-size:15px}.tl span{font-size:14px;color:var(--ink-soft)}
+.tl .who{display:block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.strip div{background:var(--sage-soft);border-radius:18px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;gap:4px;min-width:0}
+.strip b{font-family:var(--display);font-size:24px;color:var(--sage);font-weight:600;line-height:1}
+.strip span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.quote{font-family:var(--display);font-size:23px;line-height:1.3;font-weight:500;font-style:italic}
+.h-maike{font-style:italic;color:var(--rose)}
+/* home: first-year timeline */
+.year{margin-top:44px;border-top:1px solid var(--line);padding-top:24px}
+.year-h{font-family:var(--display);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.year-line{list-style:none;margin:0;padding:0 0 0 24px;display:flex;flex-direction:column;gap:20px;position:relative}
+.year-line::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.year-line li{position:relative;display:flex;flex-direction:column;gap:3px}
+.year-line li::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--rose)}
+.year-line time{font-family:var(--display);font-weight:500;font-size:20px;color:var(--rose);line-height:1.1}
+.year-line .ev{font-size:14px;color:var(--muted)}
+.year-line b{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.35}
+.year-line .tags{display:flex;gap:6px;margin-top:4px}
+.year-line .tags i{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}
+.t-carer{background:var(--rose-soft);color:var(--rose)}
+.t-team{background:var(--sage-soft);color:var(--sage)}
+.t-nanny{background:var(--lilac);color:var(--deep)}
+@media (min-width:768px){
+  .year{margin-top:48px}
+  .year-line{flex-direction:row;padding:26px 0 0;gap:24px}
+  .year-line::before{left:0;right:0;top:5px;bottom:auto;width:auto;height:2px}
+  .year-line li{flex:1 1 0;min-width:0}
+  .year-line li::before{left:0;top:-26px}
+}
+/* home: the two plans as two chapters */
+.chapters{display:flex;flex-direction:column;gap:0;margin-top:18px}
+.chapter{background:var(--card);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line)}
+.ch-photo{position:relative}
+.ch-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--lilac)}
+.ch-tag{position:absolute;left:14px;top:14px;background:var(--card);color:var(--deep);font-family:var(--display);font-style:italic;font-size:15px;padding:5px 14px;border-radius:999px}
+.ch-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.ch-body h3{font-size:28px}
+.ch-line{font-size:15.5px;color:var(--ink-soft);line-height:1.5}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin:6px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:14px 10px 12px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.facts div+div{border-left:1px solid var(--line)}
+.facts div:first-child{padding-left:0}
+.facts dt{font-family:var(--display);font-weight:500;font-size:clamp(20px,5.6vw,26px);color:var(--rose);line-height:1;white-space:nowrap}
+.facts dd{margin:0;font-size:12.5px;line-height:1.35;color:var(--ink-soft)}
+.ch-body .btn{margin-top:auto}
+.bridge{align-self:center;display:flex;align-items:center;justify-content:center;width:76px;height:76px;margin:-14px 0;border-radius:50%;background:var(--card);border:2px solid var(--blush);box-shadow:0 0 0 6px var(--blush);position:relative;z-index:1}
+.bridge b{font-family:var(--display);font-style:italic;font-weight:500;font-size:17px;color:var(--rose);white-space:nowrap;line-height:1}
+.bridge b::after{content:" ↓"}
+@media (min-width:768px){
+  .chapters{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);align-items:stretch}
+  .bridge{margin:0 -26px;align-self:center}
+  .bridge b::after{content:" →"}
+  .ch-body{padding:24px 26px 26px}
+  .facts dt{font-size:26px}
+}
+/* home: why we started, then and now */
+.tn{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+.tn-photo{margin:0;display:flex;flex-direction:column;gap:8px}
+.tn-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;display:block;background:var(--lilac)}
+.tn-photo figcaption{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink-soft)}
+.tn-table{background:var(--card);border-radius:24px;padding:6px 18px 18px;display:flex;flex-direction:column}
+.tn-head,.tn-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tn-head{padding:14px 0 10px;border-bottom:1px solid var(--line)}
+.tn-head span{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.tn-head span+span{color:var(--muted)}
+.tn-row{padding:14px 0;border-bottom:1px solid var(--line)}
+.tn-row p{display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.4}
+.tn-row svg{width:24px;height:24px;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tn-then{color:var(--deep)}
+.tn-then svg{stroke:var(--gold)}
+.tn-now{color:var(--ink-soft)}
+.tn-now svg{stroke:var(--muted)}
+.tn-maike{margin-top:16px;background:var(--rose-soft);border-radius:16px;padding:14px 16px;font-size:15px;line-height:1.45;color:var(--ink)}
+.tn-maike b{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:3px}
+.tn-quote{margin:22px 0 0;padding:0 0 0 18px;border-left:3px solid var(--rose)}
+.tn-quote blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:21px;line-height:1.35;color:var(--ink)}
+.tn-quote figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+@media (min-width:768px){
+  .tn{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:stretch}
+  .tn-photo img{aspect-ratio:auto;height:100%;min-height:360px;flex:1}
+  .tn-table{padding:8px 26px 24px}
+  .tn-row p{flex-direction:row;align-items:flex-start;gap:12px;font-size:15.5px}
+  .tn-row svg{flex:none;margin-top:1px}
+  .tn-quote{max-width:760px;margin-top:32px}
+  .tn-quote blockquote{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+<meta name="description" content="Maike terms of service, in plain language.">
+<meta property="og:title" content="Terms · Maike">
+<meta property="og:description" content="Maike terms of service, in plain language.">
+<meta property="og:image" content="https://www.maike.space/assets/img/mother-feeding.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maike">
+<meta name="theme-color" content="#FDF9F7">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/responsive.css?v=f8de91a2">
+<script src="config.js?v=4e914e7e"></script>
+<script src="assets/js/leads.js?v=7315862d" defer></script>
+</head>
+<body>
+<div class="page">
+<header><a class="brand" href="./">maike<small>Care for the first year · Bengaluru</small></a><nav class="nav"><a class="link" href="first-ten-weeks.html">Carer at home</a><a class="link" href="circle.html">Circle</a></nav></header>
+<section><p class="eyebrow">Terms</p><h2>The short version</h2><div class="stack" style="gap:12px;margin-top:8px">
+<p class="lede"><b>The First Ten Weeks</b> is ₹90,000 for ten weeks of a trained carer, twelve hours a day, or six monthly payments of ₹15,000. Full refund before she starts; after that, unused weeks are refunded pro rata. A 48-hour hold costs ₹5,000, adjusted against the package or refunded.</p>
+<p class="lede"><b>Maike Circle</b> is ₹1,999 a month, billed ₹5,499 a quarter, and can be cancelled at the end of any quarter. Two video consults a month are included; extra consults are ₹499.</p>
+<p class="lede">Carers give care and support, not medical treatment. Doctors on Maike Circle are registered practitioners; the instant first answer is guidance, not diagnosis, and anything serious is routed to a call or to emergency services. In an emergency, go to the nearest hospital.</p>
+<p class="lede">Questions: hello@maike.in.</p>
+</div></section>
+<footer><p class="muted">Maike · <a class="link" href="privacy.html">Privacy</a> · <a class="link" href="terms.html">Terms</a> · hello@maike.in</p></footer>
+</div>
+</body>
+</html>

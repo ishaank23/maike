@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Maike · care for the first year, Bengaluru</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FDF9F7; --blush:#F9E7EA; --lilac:#F4EEF2; --card:#FFFFFF; --line:#EAD9DE;
+  --ink:#3A3236; --ink-soft:#6B5E66; --muted:#9A8C93;
+  --rose:#C65A7C; --rose-ink:#FFFFFF; --rose-soft:#FBE7EE;
+  --sage:#6E9E8C; --sage-soft:#E8F1ED; --deep:#5B3A4E; --deep-fg:#F8EEF2; --deep-muted:#D3BCC6; --gold:#C9A46B;
+  --display:"Literata",Georgia,"Times New Roman",serif; --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.page{max-width:560px;margin:0 auto}
+section,header,footer{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:36px}
+.blush{background:var(--blush)}.lilac{background:var(--lilac)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,10vw,50px)}
+h2{font-size:34px;margin-bottom:12px}
+h3{font-size:24px}
+p{margin:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.lede{font-size:17px;color:var(--ink-soft);max-width:36em}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:14px}
+header{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
+.brand{font-family:var(--display);font-size:26px;font-weight:600;color:var(--rose);text-decoration:none}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.nav{display:flex;gap:12px;white-space:nowrap}
+.link{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.photo{width:100%;display:block;border-radius:26px;object-fit:cover}
+.hero-photo{aspect-ratio:4/3.2}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:999px;padding:14px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;background:var(--rose);color:var(--rose-ink);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.offer{background:var(--card);border:1.5px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.offer img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.offer .body{padding:18px;display:flex;flex-direction:column;gap:10px}
+.offer .when{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.offer .pr{font-family:var(--display);font-size:30px;font-weight:600;line-height:1}
+.offer .pr small{font-family:var(--body);font-size:14px;color:var(--muted);font-weight:600}
+.incl{display:flex;flex-direction:column;gap:7px;font-size:15px;color:var(--ink-soft)}
+.incl div{display:flex;gap:10px}.incl div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:.62em}
+.tl{display:flex;flex-direction:column}
+.tl>div{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tl>div:last-child{border-bottom:0}
+.tl time{font-family:var(--display);font-size:20px;font-weight:600;color:var(--rose);line-height:1.1;padding-top:2px}
+.tl b{display:block;font-size:15px}.tl span{font-size:14px;color:var(--ink-soft)}
+.tl .who{display:block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--sage)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.strip div{background:var(--sage-soft);border-radius:18px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;gap:4px;min-width:0}
+.strip b{font-family:var(--display);font-size:24px;color:var(--sage);font-weight:600;line-height:1}
+.strip span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.quote{font-family:var(--display);font-size:23px;line-height:1.3;font-weight:500;font-style:italic}
+.h-maike{font-style:italic;color:var(--rose)}
+/* home: first-year timeline */
+.year{margin-top:44px;border-top:1px solid var(--line);padding-top:24px}
+.year-h{font-family:var(--display);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.year-line{list-style:none;margin:0;padding:0 0 0 24px;display:flex;flex-direction:column;gap:20px;position:relative}
+.year-line::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.year-line li{position:relative;display:flex;flex-direction:column;gap:3px}
+.year-line li::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--rose)}
+.year-line time{font-family:var(--display);font-weight:500;font-size:20px;color:var(--rose);line-height:1.1}
+.year-line .ev{font-size:14px;color:var(--muted)}
+.year-line b{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.35}
+.year-line .tags{display:flex;gap:6px;margin-top:4px}
+.year-line .tags i{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}
+.t-carer{background:var(--rose-soft);color:var(--rose)}
+.t-team{background:var(--sage-soft);color:var(--sage)}
+.t-nanny{background:var(--lilac);color:var(--deep)}
+@media (min-width:768px){
+  .year{margin-top:48px}
+  .year-line{flex-direction:row;padding:26px 0 0;gap:24px}
+  .year-line::before{left:0;right:0;top:5px;bottom:auto;width:auto;height:2px}
+  .year-line li{flex:1 1 0;min-width:0}
+  .year-line li::before{left:0;top:-26px}
+}
+/* home: the two plans as two chapters */
+.chapters{display:flex;flex-direction:column;gap:0;margin-top:18px}
+.chapter{background:var(--card);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line)}
+.ch-photo{position:relative}
+.ch-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--lilac)}
+.ch-tag{position:absolute;left:14px;top:14px;background:var(--card);color:var(--deep);font-family:var(--display);font-style:italic;font-size:15px;padding:5px 14px;border-radius:999px}
+.ch-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.ch-body h3{font-size:28px}
+.ch-line{font-size:15.5px;color:var(--ink-soft);line-height:1.5}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin:6px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:14px 10px 12px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.facts div+div{border-left:1px solid var(--line)}
+.facts div:first-child{padding-left:0}
+.facts dt{font-family:var(--display);font-weight:500;font-size:clamp(20px,5.6vw,26px);color:var(--rose);line-height:1;white-space:nowrap}
+.facts dd{margin:0;font-size:12.5px;line-height:1.35;color:var(--ink-soft)}
+.ch-body .btn{margin-top:auto}
+.bridge{align-self:center;display:flex;align-items:center;justify-content:center;width:76px;height:76px;margin:-14px 0;border-radius:50%;background:var(--card);border:2px solid var(--blush);box-shadow:0 0 0 6px var(--blush);position:relative;z-index:1}
+.bridge b{font-family:var(--display);font-style:italic;font-weight:500;font-size:17px;color:var(--rose);white-space:nowrap;line-height:1}
+.bridge b::after{content:" ↓"}
+@media (min-width:768px){
+  .chapters{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);align-items:stretch}
+  .bridge{margin:0 -26px;align-self:center}
+  .bridge b::after{content:" →"}
+  .ch-body{padding:24px 26px 26px}
+  .facts dt{font-size:26px}
+}
+/* home: why we started, then and now */
+.tn{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+.tn-photo{margin:0;display:flex;flex-direction:column;gap:8px}
+.tn-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;display:block;background:var(--lilac)}
+.tn-photo figcaption{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink-soft)}
+.tn-table{background:var(--card);border-radius:24px;padding:6px 18px 18px;display:flex;flex-direction:column}
+.tn-head,.tn-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tn-head{padding:14px 0 10px;border-bottom:1px solid var(--line)}
+.tn-head span{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.tn-head span+span{color:var(--muted)}
+.tn-row{padding:14px 0;border-bottom:1px solid var(--line)}
+.tn-row p{display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.4}
+.tn-row svg{width:24px;height:24px;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tn-then{color:var(--deep)}
+.tn-then svg{stroke:var(--gold)}
+.tn-now{color:var(--ink-soft)}
+.tn-now svg{stroke:var(--muted)}
+.tn-maike{margin-top:16px;background:var(--rose-soft);border-radius:16px;padding:14px 16px;font-size:15px;line-height:1.45;color:var(--ink)}
+.tn-maike b{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:3px}
+.tn-quote{margin:22px 0 0;padding:0 0 0 18px;border-left:3px solid var(--rose)}
+.tn-quote blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:21px;line-height:1.35;color:var(--ink)}
+.tn-quote figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+@media (min-width:768px){
+  .tn{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:stretch}
+  .tn-photo img{aspect-ratio:auto;height:100%;min-height:360px;flex:1}
+  .tn-table{padding:8px 26px 24px}
+  .tn-row p{flex-direction:row;align-items:flex-start;gap:12px;font-size:15.5px}
+  .tn-row svg{flex:none;margin-top:1px}
+  .tn-quote{max-width:760px;margin-top:32px}
+  .tn-quote blockquote{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+<meta name="description" content="A trained carer in your home for the forty days, then your own doctors, nurse and specialists on your phone for the first year. Bengaluru.">
+<meta property="og:title" content="Maike · care for the first year, Bengaluru">
+<meta property="og:description" content="A trained carer in your home for the forty days, then your own doctors, nurse and specialists on your phone for the first year. Bengaluru.">
+<meta property="og:image" content="https://www.maike.space/assets/img/mother-feeding.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maike">
+<meta name="theme-color" content="#FDF9F7">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/responsive.css?v=f8de91a2">
+<script src="config.js?v=4e914e7e"></script>
+<script src="assets/js/leads.js?v=7315862d" defer></script>
+</head>
+<body>
+
+<div class="page">
+
+<header>
+  <a class="brand" href="./">maike<small>Care for the first year · Bengaluru</small></a>
+  <nav class="nav"><a class="link" href="first-ten-weeks.html">Carer at home</a><a class="link" href="circle.html">Circle</a></nav>
+</header>
+
+<section id="top" style="padding-top:4px">
+  <div class="hero">
+    <div class="hero-copy">
+      <p class="def"><b>maike</b> <i>(n.)</i> your mother’s home, where you rest after birth</p>
+      <h1>All the help of your <em class="h-maike">maike</em>, in your own home.</h1>
+      <ul class="hero-checks">
+        <li>A trained carer who speaks your language</li>
+        <li>Your own doctors on your phone, any hour</li>
+        <li>A replacement by 7 am if she can’t come</li>
+      </ul>
+      <div class="row hero-cta" style="gap:10px"><a class="btn" href="first-ten-weeks.html">Find a carer near me</a><a class="btn ghost" href="circle.html">See Maike Circle</a></div>
+    </div>
+    <figure class="hero-visual">
+      <img class="photo hero-photo" src="assets/img/mother-feeding.jpg" alt="A new mother feeds her baby while her carer brings a warm breakfast tray">
+      <div class="hv-card hv-log" aria-hidden="true"><small>Carer log · 7:42 am</small><b>Lakshmi has arrived.</b></div>
+      <div class="hv-card hv-note" aria-hidden="true"><small>Kavitha, senior nurse</small><b>Up 180 g this week. Feeding well.</b></div>
+    </figure>
+  </div>
+
+  <div class="year">
+    <p class="year-h">Your first year, and who is with you</p>
+    <ol class="year-line">
+      <li><time>Day 3</time><span class="ev">You come home from hospital</span><b>Your carer arrives the next morning</b><span class="tags"><i class="t-carer">Carer</i></span></li>
+      <li><time>Day 40</time><span class="ev">Family leaves, check-ups stop</span><b>Carer stays on, nurse checks in</b><span class="tags"><i class="t-carer">Carer</i><i class="t-team">Care team</i></span></li>
+      <li><time>Month 6</time><span class="ev">You go back to work</span><b>A nanny you have already met</b><span class="tags"><i class="t-nanny">Nanny</i><i class="t-team">Care team</i></span></li>
+      <li><time>Month 12</time><span class="ev">First birthday</span><b>The same doctors since day 3</b><span class="tags"><i class="t-team">Care team</i></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">Two plans, one year</p>
+  <h2>In your home first. On your phone all year.</h2>
+  <div class="chapters">
+    <article class="chapter">
+      <div class="ch-photo"><img src="assets/img/carer-morning.jpg" alt="A new mother sleeps while her carer holds the baby in the morning light"><span class="ch-tag">Chapter one · weeks 0–10</span></div>
+      <div class="ch-body">
+        <h3>The First Ten Weeks</h3>
+        <p class="ch-line">A trained carer who speaks your languages and cooks, massages and bathes the way your amma would.</p>
+        <dl class="facts">
+          <div><dt>₹90,000</dt><dd>ten weeks, or 6 × ₹15,000</dd></div>
+          <div><dt>7 am</dt><dd>replacement if she can’t come</dd></div>
+          <div><dt>12 h</dt><dd>a day, in your home</dd></div>
+        </dl>
+        <a class="btn" href="first-ten-weeks.html">Find a nanny / japa near me</a>
+      </div>
+    </article>
+    <div class="bridge" aria-hidden="true"><b>then</b></div>
+    <article class="chapter">
+      <div class="ch-photo"><img src="assets/img/couple-night-doctor.jpg" alt="A couple at night with their baby, a paediatrician on the laptop screen"><span class="ch-tag">Chapter two · months 1–12</span></div>
+      <div class="ch-body">
+        <h3>Maike Circle</h3>
+        <p class="ch-line">Your baby’s own paediatrician, nurse and specialists on your phone, and your gynaecologist for you. The same team all year.</p>
+        <dl class="facts">
+          <div><dt>₹1,999</dt><dd>a month, billed quarterly</dd></div>
+          <div><dt>10 min</dt><dd>for a nurse to reply by day</dd></div>
+          <div><dt>7 am</dt><dd>a doctor checks every night answer</dd></div>
+        </dl>
+        <a class="btn" href="circle.html">Meet your team</a>
+      </div>
+    </article>
+  </div>
+  <p class="muted" style="margin-top:16px">Take both and Circle’s first month is free. Your carer’s daily log becomes the first page of your baby’s file.</p>
+</section>
+
+<section>
+  <p class="eyebrow">How the year goes</p>
+  <h2>What happens when, and who is with you</h2>
+  <div class="card tl" style="margin-top:12px">
+    <div><time>3rd trimester</time><div><b>You meet your carer</b><span>Two or three carers chosen for your languages and tradition. You pick one before the baby comes.</span><span class="who">First Ten Weeks</span></div></div>
+    <div><time>Day 1</time><div><b>She’s there every morning</b><span>Your meals, your massage, the baby’s bath, the log. You sleep.</span><span class="who">First Ten Weeks</span></div></div>
+    <div><time>Week 6</time><div><b>First vaccines, your six-week check</b><span>The nurse walks you through both; your mood check, read by a person.</span><span class="who">Both</span></div></div>
+    <div><time>Week 10</time><div><b>Your carer leaves. Your team stays.</b><span>The log becomes the file. Your paediatrician and gynaecologist are already assigned.</span><span class="who">Circle</span></div></div>
+    <div><time>Month 6</time><div><b>Solids, and going back to work</b><span>First foods your way, a pumping plan, and a nanny who has read the file if you need one.</span><span class="who">Circle</span></div></div>
+    <div><time>Month 12</time><div><b>The first birthday</b><span>A growth summary from your doctor, and the file, yours to keep.</span><span class="who">Circle</span></div></div>
+  </div>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">Why we started this</p>
+  <h2>A generation ago, you’d have gone to your maike.</h2>
+  <div class="tn">
+    <figure class="tn-photo"><img src="assets/img/mother-hair-oil.jpg" alt="A new mother has her hair oiled in the morning, the way it was done at her mother’s home"><figcaption>The forty days, the way they were done at your mother’s home.</figcaption></figure>
+    <div class="tn-table">
+      <div class="tn-head"><span>A generation ago</span><span>Today</span></div>
+      <div class="tn-row"><p class="tn-then"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/></svg>Your mother warmed the oil and cooked for healing</p><p class="tn-now"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/></svg>A job you can’t leave for long</p></div>
+      <div class="tn-row"><p class="tn-then"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>She knew what every cry meant</p><p class="tn-now"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-6-6-11a6 6 0 0 1 12 0c0 5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg>She is a flight away</p></div>
+      <div class="tn-row"><p class="tn-then"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg>The house was full for forty days</p><p class="tn-now"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>A vaccination card and a WhatsApp number</p></div>
+      <p class="tn-maike"><b>With Maike</b>The forty days come to your home, and a team stays beside you for the year after.</p>
+    </div>
+  </div>
+  <figure class="tn-quote"><blockquote>“Lakshmi akka made rasam the way my amma does. When she left at week ten, Kavitha and Dr Meera were already on my phone. I never felt the gap.”</blockquote><figcaption>Anusha R., Indiranagar · both plans · illustrative</figcaption></figure>
+</section>
+
+<section id="talk" class="lilac">
+  <p class="eyebrow">Not sure which one?</p>
+  <h2>Leave a number. A nurse calls you today.</h2>
+  <p class="lede" style="margin-bottom:18px">Four quick questions, then a fifteen-minute call. No pitch.</p>
+  <form id="leadform" class="lf" novalidate>
+    <div class="lf-main card">
+      <div class="lf-progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      <p class="lf-count" id="lf-count">Question 1 of 4</p>
+
+      <fieldset class="lf-step" data-step="1">
+        <legend>Where are you right now?</legend>
+        <div class="lf-chips">
+          <label class="lf-chip"><input type="radio" name="stage" value="expecting"><span>I’m expecting</span></label>
+          <label class="lf-chip"><input type="radio" name="stage" value="here"><span>Baby is here</span></label>
+          <label class="lf-chip"><input type="radio" name="stage" value="planning"><span>Planning a baby</span></label>
+        </div>
+        <div class="lf-date" id="lf-date-wrap" hidden><label class="lbl" for="lf-date" id="lf-date-l">Due date</label><input class="in" id="lf-date" name="date" type="date"><p class="lf-hint" id="lf-date-hint"></p></div>
+      </fieldset>
+
+      <fieldset class="lf-step" data-step="2" hidden>
+        <legend>What would help most?</legend>
+        <div class="lf-chips">
+          <label class="lf-chip"><input type="radio" name="plan" value="first-ten-weeks"><span>A carer at home</span></label>
+          <label class="lf-chip"><input type="radio" name="plan" value="circle"><span>Doctors on my phone</span></label>
+          <label class="lf-chip"><input type="radio" name="plan" value="both"><span>Both</span></label>
+          <label class="lf-chip"><input type="radio" name="plan" value="unsure"><span>Not sure yet</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="lf-step" data-step="3" hidden>
+        <legend><label for="lf-area-q">Where do you live in Bengaluru?</label></legend>
+        <div class="lf-ac">
+          <input class="in" id="lf-area-q" type="text" placeholder="Start typing your area" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="lf-area-list">
+          <ul class="lf-ac-list" id="lf-area-list" role="listbox" hidden></ul>
+        </div>
+        <input type="hidden" name="area" id="lf-area">
+        <p class="lf-hint" id="lf-area-hint"></p>
+      </fieldset>
+
+      <fieldset class="lf-step" data-step="4" hidden>
+        <legend>Who should the nurse call?</legend>
+        <div class="fgrid">
+          <div class="stack" style="gap:6px"><label class="lbl" for="lf-name">Your name</label><input class="in" id="lf-name" name="name" autocomplete="name" required></div>
+          <div class="stack" style="gap:6px"><label class="lbl" for="lf-phone">WhatsApp number</label><div class="lf-phone"><span>+91</span><input class="in" id="lf-phone" name="phone" type="tel" inputmode="numeric" placeholder="98765 43210" autocomplete="tel-national" required></div></div>
+        </div>
+        <div class="stack" style="gap:6px;margin-top:14px"><label class="lbl" for="lf-when">Best time to call</label>
+          <select class="in" id="lf-when" name="when"><option value="asap">As soon as a nurse is free</option><option value="evening">This evening</option><option value="tomorrow">Tomorrow morning</option></select></div>
+        <label class="lf-consent" for="lf-consent"><input type="checkbox" id="lf-consent" name="consent" checked><span>You can message me on WhatsApp and SMS about this.</span></label>
+        <button class="btn" type="submit" id="lf-submit" style="margin-top:14px">Call me today</button>
+        <p class="muted" id="lf-msg" aria-live="polite" style="margin-top:8px"></p>
+      </fieldset>
+
+      <div class="lf-nav">
+        <button type="button" class="lf-back" id="lf-back" hidden>‹ Back</button>
+        <button type="button" class="btn lf-next" id="lf-next" disabled>Next</button>
+      </div>
+    </div>
+    <aside class="lf-side card" aria-live="polite">
+      <p class="lf-side-h">What your call will cover</p>
+      <ul class="lf-sum" id="lf-sum"></ul>
+      <div class="lf-price" id="lf-price" hidden></div>
+      <p class="fine">We use your number only to reach you about Maike. <a class="link" href="privacy.html">Privacy</a>.</p>
+    </aside>
+    <a class="btn ghost wa-link" href="#" data-wa="Hi Maike, I’d like to know more.">Or message us on WhatsApp</a>
+  </form>
+<script>
+(function(){
+  const f=document.getElementById("leadform"); if(!f) return;
+  const $=id=>document.getElementById(id);
+  const DAY=864e5;
+  const COVERED=["Koramangala","Indiranagar","HSR Layout","Jayanagar","MG Road","Church Street","Richmond Town"];
+  const NOTYET=["Whitefield","Sarjapur Road","Hebbal","Electronic City","Marathahalli","Bellandur","JP Nagar","BTM Layout","Banashankari","Basavanagudi","Malleshwaram","Rajajinagar","Yelahanka","Hennur","Kalyan Nagar","RT Nagar","Sadashivanagar","Frazer Town","Ulsoor","Domlur","Bannerghatta Road","Brookefield","KR Puram","Hoodi","Vijayanagar","Kengeri"];
+  const AREAS=COVERED.map(n=>({n,cov:"yes"})).concat(NOTYET.map(n=>({n,cov:"no"})));
+  let step=1, area=null, acIdx=-1;
+  const val=n=>{const r=f.querySelector(`input[name=${n}]:checked`); return r?r.value:"";};
+  const fmt=d=>d.toLocaleDateString("en-IN",{day:"numeric",month:"short"});
+  function dateInfo(){
+    const st=val("stage"), v=$("lf-date").value; if(!v||st==="planning"||!st) return null;
+    const d=new Date(v+"T00:00:00"), now=new Date(); now.setHours(0,0,0,0);
+    if(st==="expecting"){ const left=Math.round((d-now)/DAY); if(left<0||left>280) return {bad:"That date looks off. Check the due date?"}; const wk=Math.max(0,Math.min(40,Math.floor((280-left)/7))); return {txt:`Due ${fmt(d)} · ${wk} weeks done`}; }
+    const age=Math.round((now-d)/DAY); if(age<0||age>730) return {bad:"That date looks off. Check the date of birth?"};
+    const txt=age<14?`${age} day${age===1?"":"s"} old`:age<84?`${Math.round(age/7)} weeks old`:`${Math.round(age/30.4)} months old`;
+    return {txt:"Baby is "+txt, age};
+  }
+  function canNext(){
+    if(step===1){ const st=val("stage"); if(!st) return false; if(st==="planning") return true; const di=dateInfo(); return !di||!di.bad; }
+    if(step===2) return !!val("plan");
+    if(step===3) return !!area;
+    return false;
+  }
+  function show(n){
+    step=n;
+    f.querySelectorAll(".lf-step").forEach(s=>s.hidden=+s.dataset.step!==n);
+    f.querySelectorAll(".lf-progress i").forEach((i,k)=>i.classList.toggle("on",k<n));
+    $("lf-count").textContent=`Question ${n} of 4`;
+    $("lf-back").hidden=n===1;
+    $("lf-next").hidden=n===4;
+    render();
+    const first=f.querySelector(`.lf-step[data-step="${n}"] input:not([type=hidden]), .lf-step[data-step="${n}"] select`);
+    if(n===3) setTimeout(()=>$("lf-area-q").focus(),50);
+    if(n===4) setTimeout(()=>$("lf-name").focus(),50);
+  }
+  // area search
+  function acRender(q){
+    const list=$("lf-area-list"); q=(q||"").trim().toLowerCase();
+    let items = q ? AREAS.filter(a=>a.n.toLowerCase().includes(q)).sort((a,b)=>(a.cov==="yes"?0:1)-(b.cov==="yes"?0:1)).slice(0,6) : AREAS.filter(a=>a.cov==="yes");
+    if(q && !items.some(a=>a.n.toLowerCase()===q)) items=items.concat([{n:$("lf-area-q").value.trim(),cov:"check"}]);
+    acIdx = items.length ? 0 : -1;
+    list.innerHTML = (q?"":`<li class="lf-ac-h" aria-hidden="true">Areas we cover today</li>`) + items.map((a,i)=>`<li role="option" data-i="${i}" class="${i===acIdx?"act":""}" data-n="${a.n.replace(/"/g,"&quot;")}" data-cov="${a.cov}"><span>${a.cov==="check"?`Use “${a.n.replace(/</g,"&lt;")}”`:a.n}</span><em class="c-${a.cov}">${a.cov==="yes"?"Covered":a.cov==="no"?"Not yet":"We’ll check"}</em></li>`).join("");
+    list.hidden=false; $("lf-area-q").setAttribute("aria-expanded","true");
+  }
+  function acClose(){ $("lf-area-list").hidden=true; $("lf-area-q").setAttribute("aria-expanded","false"); }
+  function acPick(li){ if(!li) return; area={name:li.dataset.n,cov:li.dataset.cov}; $("lf-area-q").value=area.name; acClose(); render(); }
+  $("lf-area-q").addEventListener("focus",e=>acRender(e.target.value));
+  $("lf-area-q").addEventListener("input",e=>{ area=null; acRender(e.target.value); render(); });
+  $("lf-area-q").addEventListener("keydown",e=>{
+    const opts=[...$("lf-area-list").querySelectorAll("li[role=option]")];
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); if(!opts.length) return; acIdx=(acIdx+(e.key==="ArrowDown"?1:-1)+opts.length)%opts.length; opts.forEach((o,i)=>o.classList.toggle("act",i===acIdx)); }
+    if(e.key==="Enter"){ e.preventDefault(); if(!$("lf-area-list").hidden&&opts[acIdx]) acPick(opts[acIdx]); else if(area) show(4); }
+    if(e.key==="Escape") acClose();
+  });
+  $("lf-area-list").addEventListener("mousedown",e=>{ const li=e.target.closest("li[role=option]"); if(li){ e.preventDefault(); acPick(li); } });
+  document.addEventListener("click",e=>{ if(!e.target.closest(".lf-ac")) acClose(); });
+
+  function render(){
+    const st=val("stage"), plan=val("plan"), di=dateInfo();
+    $("lf-date-wrap").hidden = !st || st==="planning";
+    $("lf-date-l").textContent = st==="here" ? "Baby’s date of birth (optional)" : "Due date (optional)";
+    $("lf-date-hint").textContent = di ? (di.bad||di.txt) : "";
+    $("lf-date-hint").className = "lf-hint"+(di&&di.bad?" warn":"");
+    $("lf-area").value = area ? area.name : "";
+    const ah=$("lf-area-hint");
+    ah.className="lf-hint"+(area&&area.cov==="no"?" warn":"");
+    ah.textContent = !area ? "" : area.cov==="yes" ? `Covered. A carer can reach ${area.name} by 7 am.` : area.cov==="no" ? `Carers aren’t in ${area.name} yet. Circle works anywhere in Bengaluru.` : "We’ll check your area on the call.";
+    // summary
+    const rows=[];
+    rows.push([!!st, !st ? "Where you are" : st==="planning" ? "Planning a baby" : di&&!di.bad ? di.txt : (st==="here"?"Baby is here":"Expecting")]);
+    const noCarerHere = !!(area && area.cov==="no");
+    const babyOld = di&&di.age!=null&&di.age>70;
+    const carer = (plan==="first-ten-weeks"||plan==="both") && !noCarerHere;
+    const circle = plan==="circle"||plan==="both";
+    if(!plan) rows.push([false,"What would help most"]);
+    if(carer && !babyOld) rows.push([true, st==="here" ? "Carers who speak your languages and could start tomorrow morning" : st==="planning" ? "How booking a carer works, once you know your due date" : "Carers who speak your languages and know your tradition, booked around your due date"]);
+    if(carer && babyOld) rows.push([true, "At this age, a nanny from month 6 and Circle usually fit better than a postpartum carer"]);
+    if(circle || (noCarerHere && plan && plan!=="unsure")) rows.push([true, "Your baby’s care team, and how the 2 a.m. answers work"]);
+    if(plan==="unsure") rows.push([true, "What fits where you are, and what it would cost"]);
+    rows.push([!!area, area ? (area.cov==="no" ? `${area.name}: Circle now, carers when we reach you` : `Area: ${area.name}`) : "Your area"]);
+    const when=$("lf-when").value;
+    const slot=window.MAIKE&&MAIKE.callSlot?MAIKE.callSlot(when).txt:"";
+    rows.push([step===4, "A senior nurse calls "+(slot||{asap:"as soon as one is free (10 am–7 pm)",evening:"this evening",tomorrow:"tomorrow morning"}[when])]);
+    $("lf-sum").innerHTML = rows.map(([on,t])=>`<li class="${on?"on":""}">${t.replace(/</g,"&lt;")}</li>`).join("");
+    let price="";
+    if(plan){
+      if(noCarerHere&&plan!=="unsure") price="Circle <b>₹1,999</b> a month while carers reach your area";
+      else if(plan==="first-ten-weeks"&&!babyOld) price="<b>₹90,000</b> for ten weeks, or 6 × ₹15,000";
+      else if(plan==="circle") price="<b>₹1,999</b> a month, billed quarterly";
+      else if(plan==="both"&&!babyOld) price="<b>₹90,000</b> for the carer · <b>Circle’s first month free</b>";
+      else if(babyOld&&carer) price="Nanny from <b>₹28,000</b> a month · Circle <b>₹1,999</b> a month";
+    }
+    $("lf-price").innerHTML=price; $("lf-price").hidden=!price;
+    $("lf-submit").textContent=/^tomorrow/.test(slot)?"Call me tomorrow":when==="evening"?"Call me this evening":"Call me today";
+    $("lf-next").disabled=!canNext();
+  }
+  // chips: plan auto-advances; "planning" auto-advances
+  f.addEventListener("change",e=>{
+    if(e.target.name==="plan") setTimeout(()=>show(3),220);
+    if(e.target.name==="stage"&&e.target.value==="planning") setTimeout(()=>show(2),220);
+    render();
+  });
+  f.addEventListener("input",render);
+  $("lf-next").addEventListener("click",()=>{ if(canNext()) show(step+1); });
+  $("lf-back").addEventListener("click",()=>show(step-1));
+  // Enter on early steps moves forward instead of submitting
+  f.addEventListener("submit",e=>{ if(step<4){ e.preventDefault(); e.stopImmediatePropagation(); if(canNext()) show(step+1); } },true);
+  $("lf-phone").addEventListener("input",e=>{ let d=e.target.value.replace(/\D/g,""); if(d.length>10) d=d.slice(-10); e.target.value=d.length>5?d.slice(0,5)+" "+d.slice(5):d; e.target.closest(".lf-phone").classList.toggle("ok",/^[6-9]\d{9}$/.test(d)); });
+  f.addEventListener("reset",()=>setTimeout(()=>{ area=null; $("lf-area-q").value=""; $("lf-phone").closest(".lf-phone").classList.remove("ok"); show(1); },0));
+  // ---------- after submit: Kavitha's first message and the baby's file (CLAUDE.md §9) ----------
+  const esc=t=>String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const today0=()=>{const t=new Date(); t.setHours(0,0,0,0); return t;};
+  const monthPart=d=>(d.getDate()<=10?"early ":d.getDate()<=20?"mid ":"late ")+d.toLocaleDateString("en-IN",{month:"long"});
+  function ageTxt(age){ return age<14?`${age} day${age===1?"":"s"} old`:age<84?`${Math.floor(age/7)} weeks old`:`${Math.floor(age/30.4)} months old`; }
+  // Writes Kavitha's middle sentence(s) and the first file entry from what the form learned.
+  function compose(d){
+    const first=d.name.split(/\s+/)[0], st=d.stage, plan=d.plan;
+    const noCarer=!!(area&&area.cov==="no"), wantsCarer=plan==="first-ten-weeks"||plan==="both";
+    let note="", entry="";
+    if(st==="expecting"&&d.date){
+      const due=new Date(d.date+"T00:00:00"), left=Math.round((due-today0())/DAY), wk=Math.max(0,Math.floor((280-left)/7));
+      note=`${left} day${left===1?"":"s"} to go, and ${wk} weeks done.`;
+      if(wantsCarer&&noCarer) note+=` Carers aren’t in ${d.area} yet, but your care team on the phone can start today.`;
+      else if(wantsCarer) note+=` Carers for ${monthPart(due)} get booked about a month ahead, so this is a good time. I’ll bring two or three who speak your languages.`;
+      else if(plan==="circle") note+=" Circle can start before the birth, so your doctors know you before day one.";
+      else note+=" I’ll ask a few questions and tell you plainly what fits.";
+      entry=`${first} reached out at ${wk} weeks.`;
+    } else if(st==="here"&&d.date){
+      const age=Math.max(0,Math.round((today0()-new Date(d.date+"T00:00:00"))/DAY));
+      note=`Your baby is ${ageTxt(age)}.`+(age<=40?" These first weeks are the hardest, and you don’t have to do them alone.":"");
+      if(wantsCarer&&!noCarer&&age<=70) note+=" A carer can start as early as tomorrow morning.";
+      else if(plan==="circle"||noCarer) note+=" I’ll set up your care team on the call.";
+      note+=" If it’s urgent before then, go straight to the nearest hospital.";
+      entry=`${first} reached out when the baby was ${ageTxt(age)}.`;
+    } else if(st==="planning"){
+      note="No hurry at all. Ask me anything, and once there’s a due date we’ll plan everything back from it.";
+      entry=`${first} reached out while planning.`;
+    } else {
+      note=st==="here"?"Congratulations. Keep your baby’s date of birth handy; it’s where our plan starts.":"Congratulations. Keep your due date handy; everything we plan counts back from it.";
+      entry=st==="here"?`${first} reached out after the birth.`:`${first} reached out during the pregnancy.`;
+    }
+    d.note=note; d.entry=entry; d.first=first;
+    d.bubble=`Hi ${first}, Kavitha here from Maike. ${note} I’ll call you ${d.whenTxt}.`;
+  }
+  f.addEventListener("maike:lead-compose",e=>compose(e.detail));
+
+  const JAS='<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#fff" stroke="#EAD9DE" stroke-width=".6"><ellipse cx="12" cy="6" rx="3.2" ry="5"/><ellipse cx="12" cy="6" rx="3.2" ry="5" transform="rotate(72 12 12)"/><ellipse cx="12" cy="6" rx="3.2" ry="5" transform="rotate(144 12 12)"/><ellipse cx="12" cy="6" rx="3.2" ry="5" transform="rotate(216 12 12)"/><ellipse cx="12" cy="6" rx="3.2" ry="5" transform="rotate(288 12 12)"/></g><circle cx="12" cy="12" r="2" fill="#C9A46B"/></svg>';
+  const calm=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function jasmine(host){
+    if(calm()) return;
+    const box=document.createElement("div"); box.className="done-jas"; box.setAttribute("aria-hidden","true");
+    for(let i=0;i<9;i++){ const s=document.createElement("i"); s.innerHTML=JAS; const sz=12+Math.random()*12;
+      s.style.cssText=`left:${5+Math.random()*90}%;width:${sz}px;height:${sz}px;animation-delay:${(Math.random()*1.6).toFixed(2)}s;animation-duration:${(4.5+Math.random()*2).toFixed(2)}s;--dx:${Math.round(Math.random()*100-50)}px;--r:${Math.round(Math.random()*360-180)}deg`;
+      box.appendChild(s); }
+    host.appendChild(box); setTimeout(()=>box.remove(),9000);
+  }
+  function ics(d){
+    const z=t=>t.toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+    const s=d.slot.start, e=new Date(s.getTime()+15*60000);
+    const body=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Maike//Callback//EN","BEGIN:VEVENT",`UID:${Date.now().toString(36)}@maike.in`,`DTSTAMP:${z(new Date())}`,`DTSTART:${z(s)}`,`DTEND:${z(e)}`,"SUMMARY:Call from Kavitha · Maike",`DESCRIPTION:Kavitha\\, senior nurse at Maike\\, calls you on ${d.phone}. About 15 minutes.`,"BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:Kavitha from Maike calls in 10 minutes","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+    return URL.createObjectURL(new Blob([body],{type:"text/calendar"}));
+  }
+  function typeInto(el,text,done){
+    if(calm()){ el.textContent=text; done(); return; }
+    let i=0; const step=()=>{ i=Math.min(text.length,i+2); el.textContent=text.slice(0,i); if(i<text.length) tid=setTimeout(step,24); else done(); };
+    tid=setTimeout(step,24);
+  }
+  let lastFocus=null, tid=0, icsUrl="";
+  function closeDone(keep){ const m=$("lf-done"); if(!m) return; clearTimeout(tid); if(icsUrl){ URL.revokeObjectURL(icsUrl); icsUrl=""; } m.remove(); document.removeEventListener("keydown",doneKey); if(!keep){ f.reset(); f.consent.checked=true; } if(lastFocus) lastFocus.focus({preventScroll:true}); }
+  function doneKey(e){ if(e.key==="Escape") closeDone(); if(e.key==="Tab"){ const els=[...$("lf-done").querySelectorAll("a[href],button")].filter(x=>!x.hidden); const i=els.indexOf(document.activeElement); e.preventDefault(); els[(i+(e.shiftKey?-1:1)+els.length)%els.length].focus(); } }
+  f.addEventListener("maike:lead-sent",e=>{
+    const d=e.detail; d.handled=true; if(!d.bubble) compose(d);
+    const ph=d.phone.replace(/^\+91(\d{5})(\d{5})$/,"+91 $1 $2");
+    const waOn=!!(window.MAIKE&&MAIKE.config.whatsappNumber);
+    icsUrl=d.slot.exact?ics(d):"";
+    const m=document.createElement("div"); m.id="lf-done"; m.className="done-modal";
+    m.innerHTML=`<div class="done-card" role="dialog" aria-modal="true" aria-labelledby="done-h">
+      <svg class="done-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+      <h3 id="done-h">${d.queued?`Saved, ${esc(d.first)}.`:`Done, ${esc(d.first)}. Kavitha calls you ${esc(d.whenTxt)}.`}</h3>
+      <p class="done-num">${d.queued?"You seem to be offline. It goes to us the moment you’re back.":`We’ll message you on <b>${esc(ph)}</b> · <a href="#talk" class="link" id="done-edit">Wrong number?</a>`}</p>
+      ${d.queued?"":`<div class="done-chat" aria-live="polite">
+        <div class="done-who"><span class="done-av" aria-hidden="true">K</span><b>Kavitha</b><span>senior nurse · Maike</span></div>
+        <div class="done-bubble"><span class="done-dots" aria-label="Kavitha is typing"><i></i><i></i><i></i></span><p id="done-text" hidden></p><time id="done-time" hidden>${new Date().toLocaleTimeString("en-IN",{hour:"numeric",minute:"2-digit"}).toLowerCase()}</time></div>
+        <div class="done-file" id="done-file" hidden><p class="done-file-h">We’ve opened your ${d.stage==="planning"?"family’s":"baby’s"} file.</p><p class="done-file-e"><span>First entry, today</span>“${esc(d.entry)}”</p></div>
+      </div>`}
+      <div class="done-actions${icsUrl&&waOn&&!d.queued?" two":""}">
+        ${icsUrl?`<a class="btn ghost" id="done-cal" href="${icsUrl}" download="maike-call-with-kavitha.ics">Add to calendar</a>`:""}
+        ${waOn&&!d.queued?`<a class="btn ghost" id="done-wa" href="${MAIKE.waLink(`Hi Kavitha, this is ${d.first}. Talk ${d.whenTxt}.`)}" target="_blank" rel="noopener">Reply on WhatsApp</a>`:""}
+        <button type="button" class="btn" id="done-close">Done</button>
+      </div>
+    </div>`;
+    document.body.appendChild(m); jasmine(m);
+    lastFocus=document.activeElement;
+    m.addEventListener("click",ev=>{ if(ev.target===m) closeDone(); });
+    $("done-close").addEventListener("click",()=>closeDone());
+    const ed=$("done-edit"); if(ed) ed.addEventListener("click",ev=>{ ev.preventDefault(); closeDone(true); $("talk").scrollIntoView({block:"start"}); setTimeout(()=>{ $("lf-phone").focus({preventScroll:true}); $("lf-phone").select(); },80); });
+    document.addEventListener("keydown",doneKey);
+    setTimeout(()=>$("done-close").focus({preventScroll:true}),50);
+    if(!d.queued){
+      const reveal=()=>{ $("done-time").hidden=false; tid=setTimeout(()=>{ $("done-file").hidden=false; },calm()?0:500); };
+      tid=setTimeout(()=>{ const dots=m.querySelector(".done-dots"); if(dots) dots.remove(); const t=$("done-text"); t.hidden=false; typeInto(t,d.bubble,reveal); },calm()?0:1100);
+    }
+  });
+  show(1);
+})();
+</script>
+</section>
+
+<section class="blush">
+  <h2>Start with what you need now.</h2>
+  <div class="stack" style="gap:10px;margin-top:16px">
+    <a class="btn" href="first-ten-weeks.html">I need a carer at home</a>
+    <a class="btn ghost" href="circle.html">I need doctors on my phone</a>
+  </div>
+  <p class="muted" style="margin-top:14px;text-align:center">Bengaluru for now: Koramangala, Indiranagar, HSR, Jayanagar and the MG Road belt.</p>
+</section>
+
+<footer>
+  <p class="muted">Maike · a managed postpartum and first-year care service. Carers are matched on the languages and tradition you choose; we never match on where anyone is from. People, photographs and stories on this site are illustrative. <a class="link" href="privacy.html">Privacy</a> · <a class="link" href="terms.html">Terms</a> · hello@maike.in</p>
+</footer>
+</div>
+
+</body>
+</html>

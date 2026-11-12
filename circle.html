@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Maike Circle · your baby’s care team, on your phone</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Maike Circle, the subscription page. Same system as the First Ten Weeks page: petal cream, blush and lilac surfaces, deep rose as the one action colour, eucalyptus for trust.
+   Mobile-first single column; the join flow runs as full-screen steps. */
+:root{
+  --bg:#FDF9F7; --blush:#F9E7EA; --lilac:#F4EEF2; --card:#FFFFFF; --line:#EAD9DE;
+  --ink:#3A3236; --ink-soft:#6B5E66; --muted:#9A8C93;
+  --rose:#C65A7C; --rose-ink:#FFFFFF; --rose-soft:#FBE7EE;
+  --sage:#6E9E8C; --sage-soft:#E8F1ED; --deep:#5B3A4E; --deep-fg:#F8EEF2; --deep-muted:#D3BCC6; --gold:#C9A46B;
+  --display:"Literata",Georgia,"Times New Roman",serif; --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1E1A1D;--blush:#2B2126;--lilac:#262126;--card:#272226;--line:#3F343A;--ink:#F3E9ED;--ink-soft:#CDBEC5;--muted:#968A90;--rose:#E58AA6;--rose-ink:#1E1A1D;--rose-soft:#3C2A32;--sage:#8FBEAD;--sage-soft:#243129;--deep:#3A2531;--deep-fg:#F8EEF2;--deep-muted:#C8B2BC;--gold:#D4B482;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+body.locked{overflow:hidden}
+.page{max-width:560px;margin:0 auto}
+section,header,footer{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:36px}
+.blush{background:var(--blush)}.lilac{background:var(--lilac)}
+h1,h2,h3,.q{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,10vw,50px)}
+h2{font-size:34px;margin-bottom:12px}
+h3{font-size:23px}
+.q{font-size:34px;line-height:1.12}
+p{margin:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.lede{font-size:17px;color:var(--ink-soft);max-width:36em}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
+.brand{font-family:var(--display);font-size:26px;font-weight:600;color:var(--rose)}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.link{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.photo{width:100%;display:block;border-radius:26px;object-fit:cover}
+.hero-photo{aspect-ratio:4/3.2}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:13px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:999px;padding:14px 20px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;background:var(--rose);color:var(--rose-ink);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:62px;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;font:inherit;text-align:left;cursor:pointer;color:var(--ink)}
+.opt b{display:block;font-size:16px}.opt span{display:block;font-size:13px;color:var(--muted)}
+.opt i{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;margin-left:auto;position:relative}
+.opt[aria-checked="true"]{border-color:var(--rose);background:var(--rose-soft)}
+.opt[aria-checked="true"] i{border-color:var(--rose);background:var(--rose)}
+.opt[aria-checked="true"] i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--card)}
+.opt:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.lbl{font-size:13px;font-weight:700;color:var(--ink-soft)}
+.in{width:100%;min-height:50px;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;background:var(--card);color:var(--ink)}
+.progress{display:flex;gap:6px}.progress i{width:18px;height:4px;border-radius:2px;background:var(--line)}.progress i.on{background:var(--rose)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 15px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;min-height:44px}
+.chip.on{background:var(--rose-soft);border-color:var(--rose)}
+.chip:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.strip div{background:var(--sage-soft);border-radius:18px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;gap:4px;min-width:0}
+.strip b{font-family:var(--display);font-size:24px;color:var(--sage);font-weight:600;line-height:1}
+.strip span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.card.deep{background:var(--deep);color:var(--deep-fg);border-color:transparent}
+.card.deep .muted{color:var(--deep-muted)}
+.card.soft{background:var(--lilac);border-color:transparent}
+.steps{display:flex;flex-direction:column;gap:16px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.step em{font-family:var(--display);font-style:normal;font-size:36px;line-height:1;color:var(--rose);font-weight:600}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--rose-soft);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:28px;color:var(--rose);flex:none;object-fit:cover;overflow:hidden}
+.avatar.sage{background:var(--sage-soft);color:var(--sage)}
+.avatar.sm{width:44px;height:44px;font-size:20px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;font-weight:600;background:var(--lilac);border-radius:999px;padding:5px 11px;color:var(--ink)}
+.checks{display:grid;gap:6px}
+.chk{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.chk i{width:20px;height:20px;border-radius:50%;background:var(--sage);color:#fff;font-style:normal;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.price strong{font-family:var(--display);font-size:44px;font-weight:600}
+.price small{font-size:14px;color:var(--deep-muted);text-align:right}
+.incl{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.incl div{display:flex;gap:10px}.incl div::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:.62em}
+.addon{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px}
+.addon span{color:var(--muted);white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td:first-child{color:var(--ink-soft);width:30%}
+td.us{color:var(--sage);font-weight:700}
+details{border-top:1px solid var(--line);padding:4px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;padding:14px 0;font-weight:700;font-size:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:26px;color:var(--rose);flex:none;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:14px;color:var(--ink-soft);font-size:15px}
+.quote{font-family:var(--display);font-size:23px;line-height:1.3;font-weight:500;font-style:italic}
+/* chat mock */
+.chat{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px}
+.chat .ts{text-align:center;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.msg{max-width:88%;padding:11px 14px;border-radius:18px;font-size:15px;line-height:1.45}
+.msg.me{align-self:flex-end;background:var(--rose-soft);border-bottom-right-radius:6px}
+.msg.them{align-self:flex-start;background:var(--lilac);border-bottom-left-radius:6px}
+.msg.them.doc{background:var(--sage-soft)}
+.msg .who{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+.msg.doc .who{color:var(--sage)}
+.msg ul{margin:6px 0 0;padding-left:18px}.msg li{margin:2px 0}
+.msg .er{display:block;margin-top:8px;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:14px}
+/* team */
+.team{display:grid;gap:10px}
+.member{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px}
+.member b{display:block;font-size:15.5px}.member span{font-size:13px;color:var(--muted)}
+.member em{font-style:normal;font-size:12px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:999px;padding:4px 9px;white-space:nowrap}
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.tl>div{display:grid;grid-template-columns:74px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tl>div:last-child{border-bottom:0}
+.tl time{font-family:var(--display);font-size:20px;font-weight:600;color:var(--rose);line-height:1.1;padding-top:2px}
+.tl b{display:block;font-size:15px}.tl span{font-size:14px;color:var(--ink-soft)}
+.tl .tr{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:700;color:var(--gold)}
+.plan{display:grid;gap:12px}
+.pcard{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.pcard.best{border-color:var(--rose)}
+.pcard .nm{font-family:var(--display);font-size:26px;font-weight:600}
+.pcard .amt{font-family:var(--display);font-size:38px;font-weight:600;line-height:1}
+.pcard .amt small{font-family:var(--body);font-size:14px;color:var(--muted);font-weight:600}
+.bestlbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s;z-index:20}
+.sticky.on{transform:none}
+.sticky .btn{max-width:520px;margin:0 auto;min-height:50px}
+.spacer{height:72px}
+#flow{position:fixed;inset:0;background:var(--bg);z-index:30;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+#flow.open{display:flex}
+.fhead{display:flex;align-items:center;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));max-width:560px;width:100%;margin:0 auto}
+.fhead button{background:none;border:0;font:inherit;font-size:26px;line-height:1;color:var(--ink);cursor:pointer;padding:4px 8px 4px 0}
+.fhead .progress{flex:1}
+.fhead .close{margin-left:auto;font-size:14px;color:var(--muted);padding:6px 0 6px 10px}
+.fbody{flex:1;overflow-y:auto;padding:8px max(20px,env(safe-area-inset-right,0px)) 120px max(20px,env(safe-area-inset-left,0px))}
+.fbody>div{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.ffoot{position:absolute;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line)}
+.ffoot>div{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.total{display:flex;justify-content:space-between;font-size:15px;padding:8px 0;border-bottom:1px solid var(--line)}
+.total.big{font-size:20px;font-weight:700;border-bottom:0;padding-top:12px}
+.fine{font-size:12.5px;color:var(--muted);line-height:1.45}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:767px){#top .hero-copy>.card.soft{order:1}#top .hero-copy>p.muted{order:2}}
+</style>
+<meta name="description" content="A paediatrician, a gynaecologist, a nurse and specialists, the same team for your baby’s first year, on your phone any hour. ₹1,999 a month, Bengaluru.">
+<meta property="og:title" content="Maike Circle · your baby’s care team, on your phone">
+<meta property="og:description" content="A paediatrician, a gynaecologist, a nurse and specialists, the same team for your baby’s first year, on your phone any hour. ₹1,999 a month, Bengaluru.">
+<meta property="og:image" content="https://www.maike.space/assets/img/couple-night-doctor.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maike">
+<meta name="theme-color" content="#FDF9F7">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/responsive.css?v=f8de91a2">
+<script src="config.js?v=4e914e7e"></script>
+<script src="assets/js/leads.js?v=7315862d" defer></script>
+</head>
+<body>
+
+<div class="page" id="landing">
+
+<header>
+  <a class="brand" href="./" style="text-decoration:none">maike circle<small>Your baby’s care team · Bengaluru</small></a>
+  <nav class="nav"><a class="link" href="./">All plans</a><a class="link" href="first-ten-weeks.html">Carer at home</a><a class="link" href="#faq">Questions</a></nav>
+</header>
+
+<section id="top" style="padding-top:4px">
+  <div class="hero">
+    <div class="hero-copy">
+    <p class="def"><b>between visits</b> <i>(n.)</i> the 2 a.m. fever, when no doctor is looking</p>
+    <h1>A doctor’s team for your baby, and for you. Any hour, all year.</h1>
+    <ul class="hero-checks">
+      <li>A nurse replies in 10 minutes by day</li>
+      <li>At night, a doctor confirms by 7 am</li>
+      <li>Care for you too, not just the baby</li>
+    </ul>
+    <div class="card soft" style="gap:6px">
+      <div class="price" style="align-items:center"><strong style="font-size:34px">₹1,999<span style="font-family:var(--body);font-size:14px;color:var(--muted);font-weight:600"> / month</span></strong><small style="color:var(--muted)">billed quarterly · cancel any quarter<br>two video consults a month included</small></div>
+    </div>
+    <button class="btn" data-open-flow id="cta">Meet your team</button>
+    <p class="muted" style="text-align:center">Four questions. Your nurse calls you tomorrow to open your baby’s file. No payment until you’ve met the team.</p>
+    </div>
+    <figure class="hero-visual">
+      <img class="photo hero-photo" src="assets/img/couple-night-doctor.jpg" alt="A worried couple sit up in bed at night with their crying baby, a paediatrician on the laptop screen talking them through it">
+      <div class="hv-card hv-log" aria-hidden="true"><small>2:14 am · answered in 18 seconds</small><b>Keep him upright. ER if breathing is fast.</b></div>
+      <div class="hv-card hv-note" aria-hidden="true"><small>7:02 am · Dr Meera</small><b>Agreed. Let’s weigh him on Friday.</b></div>
+    </figure>
+  </div>
+
+  <div class="gaps">
+    <p class="gaps-h">What happens between visits today, and with Circle</p>
+    <ol>
+      <li><span class="was">A 2 a.m. fever means a search engine or an emergency-room queue.</span><span class="now">A first answer in seconds, with the signs to go to the ER. A doctor confirms by 7 am.</span></li>
+      <li><span class="was">After six weeks, no one checks on the mother.</span><span class="now">Your gynaecologist on the same thread, and mood check-ins at 6 and 12 weeks.</span></li>
+      <li><span class="was">A different doctor at every visit, and you retell the story.</span><span class="now">The same team all year, with your baby’s file open.</span></li>
+      <li><span class="was">You keep track of vaccines and growth yourself.</span><span class="now">Vaccines planned and reminded. Growth read by your doctor every month.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">What this is, plainly</p>
+  <h2>Your own medical team, on a monthly plan.</h2>
+  <p class="lede" style="margin-bottom:16px">After the hospital sends you home, every question about your baby means a clinic visit, a WhatsApp to a doctor who replies tomorrow, or a guess. Maike Circle changes that. Here is exactly what you get.</p>
+  <div class="steps">
+    <div class="step"><em>1</em><div><h3>A team, not an app</h3><p class="muted">A paediatrician, a gynaecologist, a senior nurse, a lactation consultant, and a sleep, nutrition and child-development specialist. The same people for your family for the whole year. They have your baby’s file open every time they answer.</p></div></div>
+    <div class="step"><em>2</em><div><h3>Ask anything, any hour</h3><p class="muted">Type, send a photo or a voice note in the app. By day a person replies within ten minutes. At night you get a first answer in seconds with the signs that mean “go to the hospital now”, and a doctor confirms by morning. Two video consults a month are included.</p></div></div>
+    <div class="step"><em>3</em><div><h3>They come to you first</h3><p class="muted">Vaccine reminders a week before, growth checked by your doctor each month, a note to both parents every month about what happened and what’s coming, and a call from your nurse when something in the file doesn’t look right.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Your team</p>
+  <h2>A whole team, responsible for your family.</h2>
+  <figure style="margin:14px 0 16px"><img class="photo" src="assets/img/care-team.jpg" alt="A care team of six: paediatrician, nurse, gynaecologist, lactation consultant, dietitian and child psychologist, in a sunlit clinic lounge" style="aspect-ratio:4/3"><figcaption>Your team is assigned when you join and stays with you for the year. Photographs are illustrative.</figcaption></figure>
+  <div class="team">
+    <div class="member"><div class="avatar sm sage">M</div><div><b>Dr Meera S. · paediatrician</b><span>MD Paediatrics, 14 years. Fever, feeding, growth, vaccines, every “is this normal?”</span></div><em>Day 1</em></div>
+    <div class="member"><div class="avatar sm sage">A</div><div><b>Dr Anjali R. · gynaecologist</b><span>Your recovery: stitches, bleeding, pain, contraception, your body.</span></div><em>Day 1</em></div>
+    <div class="member"><div class="avatar sm">K</div><div><b>Kavitha N. · senior nurse</b><span>11 years NICU and maternity. Your first reply, every time; brings in the right doctor.</span></div><em>Day 1</em></div>
+    <div class="member"><div class="avatar sm">S</div><div><b>Sunitha P. · lactation consultant</b><span>IBCLC. Latch, pain, supply, pumping when you go back to work.</span></div><em>Day 1</em></div>
+    <div class="member"><div class="avatar sm">N</div><div><b>Nandini K. · infant sleep specialist</b><span>Joins before the four-month sleep regression starts.</span></div><em>Month 4</em></div>
+    <div class="member"><div class="avatar sm sage">R</div><div><b>Rhea D. · paediatric dietitian</b><span>Starting solids, allergies, your tradition’s first foods.</span></div><em>Month 5</em></div>
+    <div class="member"><div class="avatar sm">V</div><div><b>Dr Vidya M. · child psychologist</b><span>Separation, clinginess, the nanny handover when you return to work.</span></div><em>Month 9</em></div>
+  </div>
+  <p class="muted" style="margin-top:12px">One chat, one number. Kavitha reads every message first and pulls the right person into the conversation; you never have to work out whom to ask.</p>
+</section>
+
+<section class="lilac">
+  <p class="eyebrow">Every doubt, covered</p>
+  <h2>The questions every new parent has. All of them, answered by your team.</h2>
+  <div class="card" style="margin-top:14px;gap:14px">
+    <div><p class="eyebrow" style="margin-bottom:6px">About your baby</p><div class="tags"><span class="tag">Fever</span><span class="tag">Is she feeding enough?</span><span class="tag">Poop and pee</span><span class="tag">Won’t sleep</span><span class="tag">Rashes</span><span class="tag">Spitting up</span><span class="tag">Crying for hours</span><span class="tag">Which vaccines, when</span><span class="tag">Weight and growth</span><span class="tag">Jaundice</span><span class="tag">Colds and coughs</span><span class="tag">Starting solids</span><span class="tag">Teething</span><span class="tag">Milestones</span><span class="tag">Allergies</span></div></div>
+    <div><p class="eyebrow" style="margin-bottom:6px">About you</p><div class="tags"><span class="tag">Stitches and bleeding</span><span class="tag">Breastfeeding pain</span><span class="tag">Low supply, pumping</span><span class="tag">Low mood, no sleep</span><span class="tag">Back pain</span><span class="tag">Hair fall</span><span class="tag">Contraception</span><span class="tag">Going back to work</span><span class="tag">What to eat</span><span class="tag">Exercise again</span></div></div>
+    <div><p class="eyebrow" style="margin-bottom:6px">About the house</p><div class="tags"><span class="tag">Grandmother says one thing, doctor another</span><span class="tag">Finding a nanny</span><span class="tag">Daycare or nanny?</span><span class="tag">Travelling with a baby</span><span class="tag">Tradition days: what, when</span></div></div>
+  </div>
+  <p class="muted" style="margin-top:12px">Real questions from Bengaluru families, grouped. Nothing is too small to ask; small questions are most of what your team answers.</p>
+</section>
+
+<section class="lilac">
+  <p class="eyebrow">What 2 a.m. looks like</p>
+  <h2>Fever at 2 a.m.? This is what happens.</h2>
+  <p class="lede" style="margin-bottom:14px">You message. Within seconds you get a first answer: what this usually is at her age, what to do in the next hour, and the exact signs that mean go to the hospital now. Your nurse reads it by 7 am and your paediatrician confirms by noon. Anything serious becomes a phone call, not a chat reply.</p>
+  <div class="chat" aria-label="Example conversation">
+    <div class="ts">TUESDAY · 02:14</div>
+    <div class="msg me">Aarav has had hiccups and keeps spitting up after every feed since evening. He’s 7 weeks. Is this normal? He’s crying a lot.</div>
+    <div class="msg them"><span class="who">Maike · first answer · your nurse confirms by 7 am</span>At 7 weeks, spitting up after feeds with hiccups is most often reflux, and it’s in his file from week 4. For the next hour: keep him upright 20 minutes after this feed, smaller feed, burp halfway.<span class="er"><b>Go to the emergency now if:</b> he is breathing fast or his chest pulls in · lips or tongue look blue · the vomit is green or has blood · he has had fewer than 6 wet nappies today · fever 38°C or more.</span>If none of these, you can sleep. Kavitha will read this first thing.</div>
+    <div class="ts">TUESDAY · 06:52</div>
+    <div class="msg them doc"><span class="who">Kavitha N. · your nurse</span>Good morning Priya. Read the night. Nothing in what you described worries me, and his weight last Thursday (4.6 kg) is right on his curve. I’ve asked Dr Meera to look at the feeding pattern today; she’ll reply here by noon. How many hours did <em>you</em> sleep?</div>
+    <div class="msg them doc"><span class="who">Dr Meera S. · your paediatrician · 11:40</span>Classic reflux, Priya; the file shows it easing by week 10 in most babies. No medicine. Three changes for this week in your plan. Let’s look at him on video Thursday 5 pm, Kavitha has put it in.</div>
+  </div>
+  <p class="muted" style="margin-top:12px">The instant answer never names a condition you don’t already have in your file, never suggests a medicine, and never reassures you about a red flag. People do that.</p>
+</section>
+
+<section>
+  <p class="eyebrow">You’re still the patient</p>
+  <h2>The hospital stops looking after you at six weeks. Your team doesn’t.</h2>
+  <figure style="margin:14px 0 16px"><img class="photo" src="assets/img/mother-hair-oil.jpg" alt="A mother has her hair oiled in the morning light, eyes closed, the baby asleep beside her" style="aspect-ratio:4/3"></figure>
+  <p class="lede" style="margin-bottom:14px">Your gynaecologist and a lactation consultant are on the same thread as the paediatrician. Recovery, stitches, feeding, your body, your sleep, your mood. A mood check at six and twelve weeks, read by a person, with a call if it’s high. Every baby conversation ends with “and how are you?”</p>
+  <div class="card soft">
+    <p class="quote">“Dr Meera asked how I was sleeping before she asked about the baby. In four months, nobody at the hospital had.”</p>
+    <p class="muted">A Circle mother, Indiranagar</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Your year, planned</p>
+  <h2>We tell you what’s coming before it comes.</h2>
+  <p class="lede" style="margin-bottom:12px">Vaccines explained and reminded, growth read by your doctor, what changes at each age, the days your tradition marks, and the week you go back to work. A monthly note to both parents.</p>
+  <div class="card tl">
+    <div><time>Wk 6</time><div><b>First vaccines, your six-week check</b><span>DTP, IPV, Hib, Hep B, rotavirus, PCV: what each is, which are optional and what they cost (₹3,500–7,000 for the lot, less outside the hospital). Her first mood check. What tonight will be like.</span><span class="tr">Tamil homes: the sashti bath this week</span></div></div>
+    <div><time>Wk 10</time><div><b>Your carer leaves. Circle starts.</b><span>Kavitha’s first monthly note. Second vaccines. Growth line from Dr Meera.</span></div></div>
+    <div><time>Mo 4</time><div><b>The sleep regression</b><span>Nandini joins your thread two weeks before it usually starts. Your twelve-week mood check.</span></div></div>
+    <div><time>Mo 6</time><div><b>Solids, and going back to work</b><span>Rhea plans first foods your way: ragi, rice kanji, the annaprashan if you keep it. Pumping plan with Sunitha. If you need a nanny, Kavitha has three who have read your file.</span><span class="tr">Annaprashan · Choroonu · Mukhe bhaat</span></div></div>
+    <div><time>Mo 9</time><div><b>Mobility, separation, the first cold</b><span>Vaccines at nine months. Dr Vidya on handovers and clinginess. What a fever means now versus at six weeks.</span></div></div>
+    <div><time>Mo 12</time><div><b>The first birthday</b><span>Year-end vaccines, a growth summary from Dr Meera, and your file, yours to keep.</span></div></div>
+  </div>
+</section>
+
+<section class="lilac">
+  <p class="eyebrow">Every month, to both of you</p>
+  <h2>A note from your doctor, not a dashboard</h2>
+  <figure style="margin:14px 0 14px"><img class="photo" src="assets/img/father-night.jpg" alt="A father holds his baby on the edge of the bed at night, reading the note on his phone, his wife asleep behind him" style="aspect-ratio:4/3"></figure>
+  <div class="card deep">
+    <p class="muted" style="letter-spacing:.1em;text-transform:uppercase;font-size:11.5px;font-weight:700">Month 3 · Aarav · from Dr Meera and Kavitha</p>
+    <p style="font-size:15.5px;line-height:1.5">Aarav put on 840 g this month and is on the 45th line, same as last month. Reflux has eased; three good nights out of the last seven. Priya, your mood score moved from 3 to 4; you slept more in the week Rohit took the 5 am feed. Next month: the sleep regression often starts around week 16, Nandini will write to you the week before. Second rotavirus is due on the 14th; book Cloudnine or the Jayanagar clinic, both are fine. Rohit: one thing. Take her out of the house, alone, for an hour this weekend.</p>
+  </div>
+  <p class="muted" style="margin-top:12px">Written for both parents, in the language you chose. The father’s line is written to him.</p>
+</section>
+
+<section>
+  <p class="eyebrow">What it costs</p>
+  <h2>₹1,999 a month. Less than two clinic visits, for a whole team.</h2>
+  <div class="plan" style="margin-top:12px">
+    <div class="pcard best">
+      <span class="bestlbl">Most families</span>
+      <div class="nm">Circle</div>
+      <div class="amt">₹1,999<small> / month · ₹5,499 a quarter</small></div>
+      <div class="incl" style="margin-top:6px">
+        <div>Unlimited chat and voice notes with your team: a nurse within 10 min by day, a first answer in seconds at night</div>
+        <div>Your paediatrician and gynaecologist, the same two all year</div>
+        <div>Two video consults a month with anyone on the team</div>
+        <div>Lactation, sleep, nutrition, development pulled in as she grows</div>
+        <div>Mood checks at 6 and 12 weeks, read by a person</div>
+        <div>Vaccines planned and reminded; growth read by your doctor</div>
+        <div>Monthly note to both parents; your tradition’s days</div>
+        <div>A trained carer by 7 am at member rates, no placement fee</div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="nm">Line</div>
+      <div class="amt">₹1,199<small> / month</small></div>
+      <p class="muted">Your nurse and your paediatrician on chat, with the night-time first answer. Video consults at ₹499. For families with a mother or mother-in-law at home.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px;gap:0">
+    <p class="eyebrow" style="margin-bottom:6px">Add if you want</p>
+    <div class="addon" style="border-top:0"><div>Extra video consult</div><span>₹499</span></div>
+    <div class="addon"><div>Nurse home visit: weight, wound, feeding, vaccines coordinated</div><span>₹799</span></div>
+    <div class="addon"><div>Trained carer for a day, member rate</div><span>₹1,400</span></div>
+    <div class="addon"><div>Nanny from month 6, placed from your file</div><span>from ₹28,000 / month</span></div>
+  </div>
+  <p class="muted" style="margin-top:12px">Families finishing The First Ten Weeks get the first month free. Cancel at the end of any quarter; your file stays yours.</p>
+</section>
+
+<section class="blush">
+  <p class="eyebrow">The honest comparison</p>
+  <h2>Circle, your hospital, or an app</h2>
+  <div style="overflow-x:auto;margin-top:12px">
+  <table>
+    <tr><th></th><th>Hospital follow-ups</th><th>Consult apps</th><th>Circle</th></tr>
+    <tr><td>Who answers</td><td>Your doctor, at a visit</td><td>Whoever is free</td><td class="us">Your own team of seven</td></tr>
+    <tr><td>Knows your baby’s history</td><td>From the last visit</td><td>No</td><td class="us">The whole file, every reply</td></tr>
+    <tr><td>2 a.m.</td><td>Emergency or wait</td><td>₹400–600, a stranger</td><td class="us">Instant answer, doctor by 7 am</td></tr>
+    <tr><td>The mother after 6 weeks</td><td>Done</td><td>Book separately</td><td class="us">Gynaec, lactation, mood: included</td></tr>
+    <tr><td>Contacts you first</td><td>No</td><td>No</td><td class="us">Monthly note, vaccine week, a call if the file looks off</td></tr>
+    <tr><td>Cost, year one</td><td>₹12,000–18,000 in visits</td><td>Per consult</td><td class="us">₹1,999 a month, 24 consults included</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Stories from families</p>
+  <div class="stack stories">
+    <div class="card"><p class="quote">“I messaged at 3 about a rash. The answer came before I’d put the phone down, and Kavitha’s voice note was there when I woke. I didn’t drive to the ER. I’ve stopped driving to the ER.”</p><p class="muted">Priya &amp; Rohit, Koramangala 3rd Block · Aarav, 5 months</p></div>
+    <div class="card"><p class="quote">“When I went back to work, Kavitha had three nannies who had already read Ishaan’s file. The handover took a weekend, not a month.”</p><p class="muted">Divya N., HSR Layout · back at work since month 6</p></div>
+    <div class="card"><p class="quote">“Dr Anjali picked up that my bleeding at week nine wasn’t normal from a chat message. The hospital had discharged me at six weeks.”</p><p class="muted">Shruthi M., Jayanagar 4th Block</p></div>
+    <p class="muted">Names changed; stories shared with permission.</p>
+  </div>
+</section>
+
+<section id="faq" class="lilac">
+  <p class="eyebrow">Questions</p>
+  <h2>Before you decide</h2>
+  <div style="margin-top:12px">
+    <details><summary>Is this medical care?</summary><p>Your paediatrician and gynaecologist are registered doctors and your consults with them are medical consults. The instant answer and your care guide give guidance and triage; they never diagnose or prescribe. Anything serious is routed to a call with the doctor, or to the emergency, not to a chat reply.</p></details>
+    <details><summary>What does the instant answer actually do?</summary><p>It reads your message and your file, tells you what this usually is at your baby’s age, what to do in the next hour, and the exact signs that mean go to the emergency now. It never names a condition that isn’t already in your file, never suggests a medicine, and never reassures you about a red flag. A nurse reads every night conversation by 7 am.</p></details>
+    <details><summary>Can I join without having taken a Maike carer?</summary><p>Yes. Kavitha opens your file on a 20-minute video call: delivery, discharge summary, vaccination card, feeding, who’s at home. You meet Dr Meera the same week. Families coming from The First Ten Weeks start with ten weeks of log already in the file, and the first month free.</p></details>
+    <details><summary>Will I keep the same doctors?</summary><p>Yes. One paediatrician and one gynaecologist are assigned to your family for the year, and your care guide stays the same. If one is away, another doctor on the team covers with your full file, and you’re told.</p></details>
+    <details><summary>How fast is a reply, really?</summary><p>By day, your guide replies within 10 minutes. At night, the instant answer comes in seconds and your guide confirms by 7 am. Your paediatrician replies in chat within two hours on weekdays, same day at weekends. A video call is within 24 hours.</p></details>
+    <details><summary>What about my own doctor and hospital?</summary><p>Keep them. Circle sits between visits: we help you prepare for them, read the slips you bring back, and keep the vaccination schedule straight. If your paediatrician and ours disagree, yours decides, and ours tells you why they asked.</p></details>
+    <details><summary>Which languages?</summary><p>Kannada, Tamil, Telugu, Malayalam, Hindi and English in chat and on calls. The monthly note comes in the language you choose.</p></details>
+    <details><summary>Cancelling?</summary><p>Billed quarterly; cancel at the end of any quarter in the app. Your file is exported to you as a PDF, whatever you decide.</p></details>
+  </div>
+</section>
+
+<section>
+  <h2>A team that knows your baby, for the whole first year.</h2>
+  <p class="lede" style="margin:12px 0 20px">Four questions, and your nurse calls you tomorrow to open the file.</p>
+  <button class="btn" data-open-flow>Meet your team</button>
+  <p class="muted" style="margin-top:14px;text-align:center">Bengaluru for now. Still need a carer at home? <a class="link" href="first-ten-weeks.html">See The First Ten Weeks</a>.</p>
+</section>
+
+<footer>
+  <p class="muted">Maike Circle · a care-team membership for the first year. Doctors are registered practitioners; the instant answer is guidance, not diagnosis. Photographs are illustrative. <a class="link" href="privacy.html">Privacy</a> · <a class="link" href="terms.html">Terms</a> · hello@maike.in</p>
+</footer>
+<div class="spacer"></div>
+</div>
+
+<div class="sticky" id="sticky"><button class="btn" data-open-flow>Meet your team</button></div>
+
+<div id="flow" role="dialog" aria-modal="true" aria-label="Join Maike Circle">
+  <div class="fhead"><button id="fback" aria-label="Back">‹</button><div class="progress" id="fprog"></div><button class="close" id="fclose">Close</button></div>
+  <div class="fbody"><div id="fview"></div></div>
+  <div class="ffoot" id="ffoot"></div>
+</div>
+
+<script>
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const LANGS=[["kn","ಕನ್ನಡ Kannada"],["ta","தமிழ் Tamil"],["te","తెలుగు Telugu"],["ml","മലയാളം Malayalam"],["hi","हिन्दी Hindi"],["en","English"]];
+  const S={stage:null,dob:"",langs:new Set(),plan:"circle",name:"",phone:""};
+  const ORDER=["stage","baby","langs","plan","contact","done"];
+  let step=0;
+  const flow=$("#flow"), view=$("#fview"), foot=$("#ffoot"), prog=$("#fprog");
+  function open(){flow.classList.add("open");document.body.classList.add("locked");step=0;render()}
+  function close(){flow.classList.remove("open");document.body.classList.remove("locked")}
+  $$("[data-open-flow]").forEach(b=>b.addEventListener("click",open));
+  $("#fclose").addEventListener("click",close);
+  $("#fback").addEventListener("click",()=>{if(step>0){step--;render()}else close()});
+  window.addEventListener("scroll",()=>{$("#sticky").classList.toggle("on",window.scrollY>560)},{passive:true});
+
+  function age(){ if(!S.dob) return null; const d=(Date.now()-new Date(S.dob).getTime())/864e5; return d<0?0:Math.round(d/7); }
+  function price(){ return S.plan==="circle"?{m:1999,q:5499,nm:"Circle"}:{m:1199,q:3299,nm:"Line"}; }
+
+  function render(){
+    const v=ORDER[step];
+    prog.innerHTML=ORDER.slice(0,-1).map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("");
+    $("#fback").style.visibility=v==="done"?"hidden":"visible";
+    if(v==="stage"){
+      view.innerHTML=`<p class="eyebrow">1 of 5</p><h2 class="q">Where are you right now?</h2>
+      <div role="radiogroup" class="stack" style="gap:8px">
+        ${[["home","We just came home from the hospital","Your nurse opens your file this week"],["leaving","Our Maike carer is finishing","Your file already exists; first month free"],["older","Baby is a few months old","We start from today’s questions"],["expecting","I’m expecting","We meet before the baby comes"]].map(([k,b,s])=>`<button type="button" class="opt" role="radio" aria-checked="${S.stage===k}" data-k="${k}"><div><b>${b}</b><span>${s}</span></div><i></i></button>`).join("")}
+      </div>`;
+      $$(".opt",view).forEach(o=>o.addEventListener("click",()=>{S.stage=o.dataset.k;render()}));
+      foot.innerHTML=`<div><button class="btn" id="next" ${S.stage?"":"disabled"}>Continue</button></div>`;
+    }
+    if(v==="baby"){
+      const exp=S.stage==="expecting";
+      view.innerHTML=`<p class="eyebrow">2 of 5</p><h2 class="q">${exp?"When is the baby due?":"When was the baby born?"}</h2>
+      <p class="lede">This sets the plan: vaccine weeks, the mood checks, when each specialist joins.</p>
+      <div class="stack" style="gap:8px"><label class="lbl" for="fdob">${exp?"Due date":"Date of birth"}</label><input class="in" type="date" id="fdob" value="${S.dob}"></div>
+      <p class="muted" id="agehint"></p>`;
+      const i=$("#fdob",view); const hint=()=>{const w=age(); $("#agehint",view).textContent=w==null?"":exp?"We’ll meet you before, and start the day you’re home.":w<6?`${w} weeks. First vaccines and the six-week check are coming up; Kavitha will walk you through them.`:w<16?`${w} weeks. Second vaccines are in the plan, and Nandini joins before the four-month sleep change.`:`${w} weeks. We’ll start with today’s questions and the next vaccine.`; $("#next").disabled=!S.dob;};
+      i.addEventListener("input",()=>{S.dob=i.value;hint()});
+      foot.innerHTML=`<div><button class="btn" id="next" ${S.dob?"":"disabled"}>Continue</button></div>`; hint();
+    }
+    if(v==="langs"){
+      view.innerHTML=`<p class="eyebrow">3 of 5</p><h2 class="q">Which languages should your team speak?</h2>
+      <p class="lede">Chat, calls and the monthly note come in these. Pick all that apply.</p>
+      <div class="chips">${LANGS.map(([k,l])=>`<button type="button" class="chip ${S.langs.has(k)?"on":""}" data-k="${k}">${l}</button>`).join("")}</div>`;
+      $$(".chip",view).forEach(c=>c.addEventListener("click",()=>{const k=c.dataset.k;S.langs.has(k)?S.langs.delete(k):S.langs.add(k);render()}));
+      foot.innerHTML=`<div><button class="btn" id="next" ${S.langs.size?"":"disabled"}>Continue</button></div>`;
+    }
+    if(v==="plan"){
+      const free=S.stage==="leaving";
+      view.innerHTML=`<p class="eyebrow">4 of 5</p><h2 class="q">Choose your plan</h2>
+      <div class="plan">
+        <button type="button" class="pcard ${S.plan==="circle"?"best":""}" data-k="circle" style="text-align:left;font:inherit;color:var(--ink);cursor:pointer"><span class="bestlbl">Most families</span><div class="nm">Circle</div><div class="amt">₹1,999<small> / month · ₹5,499 a quarter</small></div><p class="muted">Guide, your two doctors, specialists, two video consults a month, mood checks, the planned year.</p></button>
+        <button type="button" class="pcard ${S.plan==="line"?"best":""}" data-k="line" style="text-align:left;font:inherit;color:var(--ink);cursor:pointer"><div class="nm">Line</div><div class="amt">₹1,199<small> / month · ₹3,299 a quarter</small></div><p class="muted">Guide, instant answer and your paediatrician on chat. Video at ₹499.</p></button>
+      </div>
+      ${free?`<div class="card soft"><b>First month free.</b><span class="muted">You’re finishing The First Ten Weeks; Kavitha already has ten weeks of your file.</span></div>`:""}`;
+      $$(".pcard",view).forEach(p=>p.addEventListener("click",()=>{S.plan=p.dataset.k;render()}));
+      foot.innerHTML=`<div><button class="btn" id="next">Continue</button><p class="fine" style="text-align:center">Nothing is charged until after you’ve met your guide.</p></div>`;
+    }
+    if(v==="contact"){
+      view.innerHTML=`<p class="eyebrow">5 of 5</p><h2 class="q">Where should your nurse call you?</h2>
+      <div class="stack" style="gap:8px"><label class="lbl" for="fn">Your name</label><input class="in" id="fn" value="${S.name}" autocomplete="name"></div>
+      <div class="stack" style="gap:8px"><label class="lbl" for="fp">WhatsApp number</label><input class="in" id="fp" type="tel" value="${S.phone}" placeholder="+91" autocomplete="tel"></div>
+      <p class="muted">She calls tomorrow between 10 and 12 for a 20-minute video call to open your file. Have the discharge summary and the vaccination card nearby.</p>`;
+      const n=$("#fn",view),p=$("#fp",view); const chk=()=>{S.name=n.value.trim();S.phone=p.value.trim();$("#next").disabled=!(S.name&&S.phone.replace(/\D/g,"").length>=10)};
+      n.addEventListener("input",chk);p.addEventListener("input",chk);
+      foot.innerHTML=`<div><button class="btn" id="next" disabled>Book my call</button><p class="fine" style="text-align:center">We’ll confirm the slot on WhatsApp.</p></div>`; chk();
+    }
+    if(v==="done"){
+      const pr=price(), free=S.stage==="leaving", w=age();
+      if(!S.sent){S.sent=true;window.MAIKE&&MAIKE.lead({source:"circle",event:"call_booked",name:S.name,phone:S.phone,stage:S.stage,date:S.dob,langs:[...S.langs],plan:S.plan,amount:pr.q-(free?pr.m:0)});}
+      view.innerHTML=`<p class="eyebrow">You’re in</p><h2 class="q">Your team is set, ${S.name.split(" ")[0]||"there"}. Kavitha calls tomorrow.</h2>
+      <div class="card"><div class="row"><div class="avatar">K</div><div><h3>Kavitha N.</h3><p class="muted">Your nurse · ${[...S.langs].map(k=>LANGS.find(l=>l[0]===k)[1].split(" ").pop()).join(", ")}</p></div></div>
+      <p style="font-size:15px">Tomorrow, 10–12: a 20-minute video call to open your file. This week: you meet Dr Meera, your paediatrician${S.stage!=="expecting"?", and Dr Anjali asks how you are":""}.</p></div>
+      <div class="card soft">
+        <div class="total"><span>${pr.nm}, billed quarterly</span><span>₹${pr.q.toLocaleString("en-IN")}</span></div>
+        ${free?`<div class="total"><span>First month free</span><span>− ₹${pr.m.toLocaleString("en-IN")}</span></div>`:""}
+        <div class="total big"><span>Due after your call</span><span>₹${(pr.q-(free?pr.m:0)).toLocaleString("en-IN")}</span></div>
+      </div>
+      ${w!=null&&S.stage!=="expecting"?`<p class="muted">First thing in your plan: ${w<6?"the six-week vaccines and your mood check":w<16?"the second vaccines, then Nandini before the four-month sleep change":"the next vaccine, and Rhea on first foods"}.</p>`:""}
+      <p class="fine">Nothing is charged until after your call.</p>`;
+      foot.innerHTML=`<div><button class="btn ghost" id="fin">Back to the page</button></div>`;
+      $("#fin").addEventListener("click",close); return;
+    }
+    const nx=$("#next",foot); if(nx) nx.addEventListener("click",()=>{step++;render()});
+  }
+})();
+</script>
+
+</body>
+</html>
